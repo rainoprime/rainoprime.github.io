@@ -27,4 +27,4 @@ ORDER BY
     field(列名，顺序1，顺序2，顺序3)
 ```
 
-![image.png](E:\newBlogs2\blog\source\_posts\MySQL针对数字顺序进行排序-自定义排序\1622110485529-62666e13-f569-4d6f-99c1-5c2986e4af7e.png)
+![排序结果](./MySQL针对数字顺序进行排序-自定义排序/1622110485529-62666e13-f569-4d6f-99c1-5c2986e4af7e.png)
