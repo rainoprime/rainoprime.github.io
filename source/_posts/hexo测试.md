@@ -1,3 +1,9 @@
+---
+title: hexo测试
+date: 2021-06-05 12:05:36
+tags:
+---
+
 ```java
 package com.newamahb.newamahb.utils;
 
@@ -93,3 +99,4 @@ public class LoginConfig implements WebMvcConfigurer {
     }
 }
 ```
+
