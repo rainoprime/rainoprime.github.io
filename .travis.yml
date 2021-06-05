@@ -27,4 +27,4 @@ branches:
     - blog-source
 env:
  global:
-   - GH_REF: https://github.com/rainoprime/rainoprime.github.io.git
+   - GH_REF: github.com/MFrank2016/breeze-blog.git
