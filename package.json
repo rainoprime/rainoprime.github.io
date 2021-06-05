@@ -5,10 +5,10 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
+    "deploy": "hexo deploy",
     "server": "hexo server",
     "sync": "yuque-hexo sync",
-    "clean:yuque": "yuque-hexo clean",
-    "deploy": "npm run sync && hexo clean && hexo g -d"
+    "clean:yuque": "yuque-hexo clean"
   },
   "hexo": {
     "version": "5.4.0"
@@ -33,9 +33,13 @@
     "adapter": "hexo",
     "concurrency": 5,
     "baseUrl": "https://www.yuque.com/api/v2",
-    "login": "rainoprime",    
-    "repo": "ytm2sv",            
-    "onlyPublished": false,
-     "token": "NWXudpW3SypzdBae9ToQfNXBfdRFFLWyNl4vKlv0"    
+    "login": "rainoprime",
+    "repo": "ytm2sv",
+    "token": "NWXudpW3SypzdBae9ToQfNXBfdRFFLWyNl4vKlv0",
+    "onlyPublished": true,
+    "onlyPublic": true
+  },
+  "devDependencies": {
+    "yuque-hexo": "^1.7.0"
   }
 }
