@@ -27,4 +27,4 @@ ORDER BY
     field(列名，顺序1，顺序2，顺序3)
 ```
 
-![排序结果](http://qu8g83jvi.hb-bkt.clouddn.com/1622110485529-62666e13-f569-4d6f-99c1-5c2986e4af7e.png?e=1622907338&token=UZXoKzMXdgpdJzYgb353C-wVqK0S9UqFvsHMVszV:wm6FBKaz33Hl1H_i0rZ8OCnzlMU=)
+![排序结果](https://img.api.liujinshui.com/1622110485529-62666e13-f569-4d6f-99c1-5c2986e4af7e.png)
