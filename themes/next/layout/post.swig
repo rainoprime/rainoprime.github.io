@@ -2,7 +2,7 @@
 {% import '_macro/sidebar.swig' as sidebar_template with context %}
 
 {% block title %}{{ page.title }} | {{ title }}{% endblock %}
-
+<meta name="referrer" content="no-referrer" />
 {% block class %}post posts-expand{% endblock %}
 
 {% block content %}
