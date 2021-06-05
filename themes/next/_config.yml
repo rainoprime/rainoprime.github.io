@@ -88,7 +88,7 @@ footer:
 creative_commons:
   license: by-nc-sa
   sidebar: true
-  post: true
+  post: fasle
   language: zh-cn
 
 
