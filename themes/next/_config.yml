@@ -52,33 +52,33 @@ language_switcher: false
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
-  #since: 2015
+  since: 2021
 
   # Icon between year and copyright info.
   icon:
     # Icon name in Font Awesome. See: https://fontawesome.com/icons
     name: fa fa-heart
     # If you want to animate the icon, set it to true.
-    animated: false
+    animated: true
     # Change the color of icon, using Hex Code.
     color: "#ff0000"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
-  copyright:
+  copyright: RainoPrime
 
   # Powered by Hexo & NexT
-  powered: true
+  powered: false
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
-    enable: false
-    icp:
+    enable: true
+    icp:  冀ICP备20019898号
     # The digit in the num of gongan beian.
     gongan_id:
     # The full num of gongan beian.
-    gongan_num:
+    gongan_num: 
     # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
-    gongan_icon_url:
+    gongan_icon_url: 
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/share-your-work/licensing-types-examples
@@ -87,9 +87,9 @@ footer:
 # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
 creative_commons:
   license: by-nc-sa
-  sidebar: false
-  post: false
-  language:
+  sidebar: true
+  post: true
+  language: zh-cn
 
 
 # ---------------------------------------------------------------
@@ -163,9 +163,10 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  url: /images/kong.png
   # If true, the avatar will be dispalyed in circle.
   rounded: false
+  opacity: 1
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
@@ -177,8 +178,10 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
-  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  GitHub: https://github.com/rainoprime || fab fa-github
+  E-Mail: mailto:it@liujinshui.com || fa fa-envelope
+  Telegram: https://t.me/RainoPrime || fab fa-telegram
+  QQ: https://wpa.qq.com/msgrd?v=3&uin=8409160&site=qq&menu=yes || fab fa-qq
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -191,7 +194,7 @@ social:
 social_icons:
   enable: true
   icons_only: false
-  transition: false
+  transition: true
 
 # Blog rolls
 links_settings:
@@ -210,7 +213,7 @@ toc:
   # Automatically add list number to toc.
   number: true
   # If true, all words will placed on next lines if header width longer then sidebar width.
-  wrap: false
+  wrap: true
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
   expand_all: false
   # Maximum heading depth of generated toc.
@@ -230,9 +233,22 @@ chat:
 # Post Settings
 # See: https://theme-next.org/docs/theme-settings/posts
 # ---------------------------------------------------------------
+# Automatically scroll page to section which is under <!-- more --> mark.
+scroll_to_more: true #选取博客正文<!--more-->前的内容
+
+# Automatically saving scroll position on each post/page in cookies.
+save_scroll: false
+
 
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
+
+# Automatically Excerpt. Not recommend.
+# Use <!-- more --> in the post to control excerpt accurately.
+auto_excerpt: 
+  enable: false #自动截取一定程度的摘要
+  length: 150
+
 
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
@@ -368,7 +384,7 @@ back2top:
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
@@ -389,9 +405,9 @@ bookmark:
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
-  enable: false
-  permalink: https://github.com/yourname
-  title: Follow me on GitHub
+  enable: true
+  permalink: https://github.com/rainoprime
+  title: 访问我的Github
 
 
 # ---------------------------------------------------------------
@@ -995,3 +1011,6 @@ vendors:
 css: css
 js: js
 images: images
+# 文章末尾添加“本文结束”标记
+passage_end_tag:
+  enabled: true
