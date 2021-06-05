@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
     "clean": "hexo clean",
+    "clean:yuque": "DEBUG=yuque-hexo.* yuque-hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server",
-    "sync": "yuque-hexo sync",
-    "clean:yuque": "yuque-hexo clean"
+    "publish": "npm run clean && npm run deploy",
+    "dev": "hexo s",
+    "sync": "DEBUG=yuque-hexo.* yuque-hexo sync",
+    "reset": "npm run clean:yuque && npm run sync"
   },
   "hexo": {
     "version": "5.4.0"

@@ -8,7 +8,7 @@ categories: []
 
 # List<对象>请求 s
 
-[]为一个 List 集合，{}为一个对象
+[]为一个 List 集合，{}为一个对象 Duixdsfsdfd
 
 ```json
 [
