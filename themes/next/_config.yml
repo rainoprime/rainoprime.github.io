@@ -121,8 +121,9 @@ menu:
   后端: /categories/Java后端 || fab fa-java
   前端: /categories/前端 || fas fa-pager
   NoSQL: /categories/NoSQL || fas fa-server
-  高级框架: /categories/高级框架 || far fa-chart-bar
+  服务器: /categories/服务器 || fab fa-buffer
   数据库: /categories/数据库 || fas fa-hockey-puck
+  高级框架: /categories/高级框架 || far fa-chart-bar
   Spring系列: /categories/Spring系列 || fas fa-leaf
   前后端交互: /categories/前后端交互 || fas fa-code
   #tags: /tags/ || tags
