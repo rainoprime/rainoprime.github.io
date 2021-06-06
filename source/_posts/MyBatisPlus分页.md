@@ -5,7 +5,7 @@ tags:
 - Java
 - MyBatisPlus
 categories:
-- MyBatisPlus
+- 高级框架
 ---
 
 > MybatisPlus的IPage分页插件的使用流程，代码示例Controller，Server，ServerImpl，Mapper，Vo，Config

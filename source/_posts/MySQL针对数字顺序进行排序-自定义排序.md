@@ -5,7 +5,7 @@ tags:
 - MySQL
 - 自定义排序
 categories:
-- [数据库,MySQL]
+- [数据库, MySQL]
 ---
 
 > 本文引用：https://blog.csdn.net/zz630586802/article/details/101672301
