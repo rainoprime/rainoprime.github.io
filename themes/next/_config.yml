@@ -116,11 +116,17 @@ darkmode: false
 # When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -> archives).
 # External url should start with http:// or https://
 menu:
-  home: / || home
-  about: /about/ || user
-  tags: /tags/ || tags
-  categories: /categories/ || th
-  archives: /archives/ || archive
+  home: / || fa fa-home
+  #about: /about/ || user
+  后端: /categories/Java后端 || fab fa-java
+  前端: /categories/前端 || fas fa-pager
+  NoSQL: /categories/NoSQL || fas fa-server
+  数据库: /categories/数据库 || far fa-chart-bar
+  Spring系列: /categories/Spring系列 || fas fa-leaf
+  前后端交互: /categories/前后端交互 || fas fa-code
+  #tags: /tags/ || tags
+  #categories: /categories/ || th
+  #archives: /archives/ || archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -181,7 +187,8 @@ social:
   GitHub: https://github.com/rainoprime || fab fa-github
   E-Mail: mailto:it@liujinshui.com || fa fa-envelope
   Telegram: https://t.me/RainoPrime || fab fa-telegram
-  QQ: https://wpa.qq.com/msgrd?v=3&uin=8409160&site=qq&menu=yes || fab fa-qq
+  # QQ: https://wpa.qq.com/msgrd?v=3&uin=8409160&site=qq&menu=yes || fab fa-qq
+  个人主页: https://www.liujinshui.com || fa fa-home
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
