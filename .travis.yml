@@ -12,6 +12,7 @@ before_install:
 install:
   - npm install   
   - npm install hexo-deployer-git --save
+  - npm install hexo-generator-searchdb --save
   - npm i -g yuque-hexo
 
 #before_script:
