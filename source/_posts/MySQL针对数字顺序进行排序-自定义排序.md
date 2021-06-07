@@ -8,7 +8,7 @@ categories:
 - [数据库, MySQL]
 ---
 
-> 本文引用：https://blog.csdn.net/zz630586802/article/details/101672301
+> 本文引用：[deepactor](https://blog.csdn.net/zz630586802/article/details/101672301)
 >
 > 原理与引用一致，仅说明不同。
 

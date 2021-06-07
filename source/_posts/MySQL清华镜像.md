@@ -7,7 +7,7 @@ categories:
 - [数据库, MySQL]
 ---
 
-> 清华镜像地址:https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads
+> 清华镜像地址:[点击跳转](https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads)
 
 <!--more-->
 

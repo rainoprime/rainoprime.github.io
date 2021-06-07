@@ -8,7 +8,7 @@ categories:
 - 服务器
 ---
 
->  全文引用：https://www.runoob.com/linux/linux-comm-tail.html
+>  全文引用：[runoob](https://www.runoob.com/linux/linux-comm-tail.html)
 >
 > 仅增加查看tomcat运行日志命令，剩余全文与引用一致
 

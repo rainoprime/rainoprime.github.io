@@ -8,11 +8,13 @@ categories:
 - 网络
 ---
 
-> 全文引用：https://www.cnblogs.com/JulianHuang/p/14858339.html#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95
+> 引用：[.NET云原生](https://www.cnblogs.com/JulianHuang/p/14858339.html#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95)
 >
-> 全文无修改，供个人学习！
+> 去掉敏感字眼，其他内容与引用一致，供个人学习！
 
 <!--more-->
+
+
 
 MD5不是加密算法，是摘要算法。
 
