@@ -9,7 +9,7 @@ categories:
 - 后端
 ---
 
-> 最近在启动tomcat时候总会出现以下错误，但是时有时无，经查大概率是因为没有在Tomcat里面设置JAVA_OPTS的原因
+> 最近在启动tomcat时候总会出现以下错误，时有时无，经查大概率是因为没有在Tomcat里面设置JAVA_OPTS的原因
 
 <!-- more-->
 
@@ -68,4 +68,4 @@ JAVA_OPTS="-server -Xms2048m -Xmx2048m -Xss512k -XX:PermSize=128m -XX:MaxPermSiz
 
 将上面代码加入到`$CATALINA_HOME/bin/catalina.sh`中可以近乎完美的避免此错误，但也会偶尔出现一两次。
 
-这涉及到JVM调优的相关知识，待了解其原理后对本文进行详解！
+这涉及到JVM调优的相关知识，待了解其原理后对此问题进行详解！
