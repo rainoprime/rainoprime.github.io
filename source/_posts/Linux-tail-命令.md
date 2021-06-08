@@ -1,6 +1,7 @@
 ---
 title: Linux tail 命令
 date: 2021-06-07 09:19:31
+updated: 2021-06-07 09:19:31
 tags:
 - Linux
 - Centos

@@ -2,6 +2,7 @@
 title: postman的JSON请求格式
 urlname: xqb6qu
 date: '2021-05-25 18:53:51 +0800'
+updated: '2021-05-25 18:53:51 +0800'
 tags: []
 categories: []
 ---
