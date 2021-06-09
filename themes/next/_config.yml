@@ -118,7 +118,7 @@ darkmode: false
 menu:
   home: / || fa fa-home
   #about: /about/ || user
-  后端: /categories/Java后端 || fab fa-java
+  后端: /categories/后端 || fab fa-java
   前端: /categories/前端 || fas fa-pager
   网络: /categories/网络 || fab fa-internet-explorer
   NoSQL: /categories/NoSQL || fas fa-server
