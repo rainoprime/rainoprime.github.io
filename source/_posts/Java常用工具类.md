@@ -83,7 +83,7 @@ Maven依赖是：
 </dependency>  
 ```
 
-### 1.字符串判空
+### 字符串判空
 
 传参CharSequence类型是String、StringBuilder、StringBuffer的父类，都可以直接下面方法判空，以下是源码：
 
@@ -115,7 +115,7 @@ public static boolean isNotBlank(final CharSequence cs) {
 }  
 ```
 
-### 2.首字母转成大写
+### 首字母转成大写
 
 ```java
 String str = "yideng";  
@@ -123,14 +123,14 @@ String capitalize = StringUtils.capitalize(str);
 System.out.println(capitalize); // 输出Yideng  
 ```
 
-### 3.重复拼接字符串
+### 重复拼接字符串
 
 ```java
 String str = StringUtils.repeat("ab", 2);  
 System.out.println(str); // 输出abab  
 ```
 
-### 4.格式化日期
+### 格式化日期
 
 再也不用手写SimpleDateFormat格式化了
 
@@ -146,7 +146,7 @@ Date date = DateUtils.parseDate("2021-05-01 01:01:01", "yyyy-MM-dd HH:mm:ss");
 Date date = DateUtils.addHours(new Date(), 1);  
 ```
 
-### 5.包装临时对象
+### 包装临时对象
 
 当一个方法需要返回两个及以上字段时，我们一般会封装成一个临时对象返回，现在有了Pair和Triple就不需要了
 
@@ -171,7 +171,7 @@ Maven依赖是：
 </dependency>  
 ```
 
-### 1.集合判空
+### 集合判空
 
 封装了集合判空的方法，以下是源码：
 
@@ -207,7 +207,7 @@ public class User {
 } 
 ```
 
-### 1.设置对象属性
+### 设置对象属性
 
 ```java
 User user = new User();  
@@ -217,7 +217,7 @@ System.out.println(BeanUtils.getProperty(user, "name")); // 输出 yideng
 System.out.println(user); // 输出 {"id":1,"name":"yideng"}  
 ```
 
-### 2.对象和map互转
+### 对象和map互转
 
 ```java
 // 对象转map  
@@ -241,7 +241,7 @@ Maven依赖：
 </dependency>  
 ```
 
-### 1.文件处理
+### 文件处理
 
 ```java
 File file = new File("demo1.txt");  
@@ -282,7 +282,7 @@ Set<String> set = Sets.newHashSet();
 
 ## 黑科技集合
 
-### 1.Multimap 一个key可以映射多个value的HashMap
+### Multimap 一个key可以映射多个value的HashMap
 
 ```java
 Multimap<String, Integer> map = ArrayListMultimap.create();  
@@ -296,7 +296,7 @@ Map<String, Collection<Integer>> collectionMap = map.asMap();
 
 无需Map<String, List>这样创建
 
-### 2.BiMap 一种连value也不能重复的HashMap
+### BiMap 一种连value也不能重复的HashMap
 
 ```java
 BiMap<String, String> biMap = HashBiMap.create();  
@@ -310,7 +310,7 @@ System.out.println(inverse); // 输出 {"value":"key"}
 
 这其实是双向映射，在某些场景还是很实用的。
 
-### 3.Table 一种有两个key的HashMap
+### Table 一种有两个key的HashMap
 
 ```java
 // 一批用户，同时按年龄和性别分组  
@@ -326,7 +326,7 @@ Map<Integer, String> column = table.column("男");
 System.out.println(column); // 输出 {18:"yideng"}  
 ```
 
-### 4.Multiset 一种用来计数的Set
+### Multiset 一种用来计数的Set
 
 ```java
 Multiset<String> multiset = HashMultiset.create();  
