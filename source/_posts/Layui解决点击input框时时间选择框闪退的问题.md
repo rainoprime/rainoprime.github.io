@@ -22,3 +22,8 @@ layui.use('laydate', function(){
   });
 });
 ```
+
+以下为部分源码
+
+![源码](https://img.api.liujinshui.com/5793041-a9dea3c8ce40764b.jpg)
+
