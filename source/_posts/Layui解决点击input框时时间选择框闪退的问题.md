@@ -18,7 +18,7 @@ layui.use('laydate', function(){
   //执行一个laydate实例
   laydate.render({
     elem: '#createTime',
-    trigger: 'click', //添加这一行来处理
+    trigger: 'click' //添加这一行来处理
   });
 });
 ```
