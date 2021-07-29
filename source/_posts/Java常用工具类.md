@@ -25,7 +25,7 @@ String join = list.stream().collect(Collectors.joining(","));
 System.out.println(join); // 输出 a,b,c  
 // 第二种方法，其实String也有join方法可以实现这个功能  
 String join = String.join(",", list);  
-System.out.println(join); // 输出 a,b,c  
+System.out.println(join); // 输出 a, b, c  
 ```
 
 ## 比较两个字符串是否相等，忽略大小写
