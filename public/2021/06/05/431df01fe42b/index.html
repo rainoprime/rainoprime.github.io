@@ -21,17 +21,23 @@
     var CONFIG = {"hostname":"blogs.liujinshui.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="挽袖清风">
-<meta property="og:url" content="https://blogs.liujinshui.com/archives/2021/06/index.html">
+  <meta name="description" content="本文引用：deepactor 原理与引用一致，仅说明不同。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL针对数字顺序进行排序-自定义排序">
+<meta property="og:url" content="https://blogs.liujinshui.com/2021/06/05/431df01fe42b/index.html">
 <meta property="og:site_name" content="挽袖清风">
-<meta property="og:description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
+<meta property="og:description" content="本文引用：deepactor 原理与引用一致，仅说明不同。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.api.liujinshui.com/1622110485529-62666e13-f569-4d6f-99c1-5c2986e4af7e.png">
+<meta property="article:published_time" content="2021-06-05T13:26:29.000Z">
+<meta property="article:modified_time" content="2021-06-05T13:26:29.000Z">
 <meta property="article:author" content="RainoPrime">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="自定义排序">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.api.liujinshui.com/1622110485529-62666e13-f569-4d6f-99c1-5c2986e4af7e.png">
 
-<link rel="canonical" href="https://blogs.liujinshui.com/archives/2021/06/">
+<link rel="canonical" href="https://blogs.liujinshui.com/2021/06/05/431df01fe42b/">
 
 
 <script id="page-configurations">
@@ -39,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 挽袖清风</title>
+  <title>MySQL针对数字顺序进行排序-自定义排序 | 挽袖清风</title>
   
 
 
@@ -213,330 +219,132 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 18 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogs.liujinshui.com/2021/06/05/431df01fe42b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kong.png">
+      <meta itemprop="name" content="RainoPrime">
+      <meta itemprop="description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挽袖清风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL针对数字顺序进行排序-自定义排序
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-05 21:26:29" itemprop="dateCreated datePublished" datetime="2021-06-05T21:26:29+08:00">2021-06-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
+        <blockquote>
+<p>本文引用：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zz630586802/article/details/101672301">deepactor</a></p>
+<p>原理与引用一致，仅说明不同。</p>
+</blockquote>
+<span id="more"></span>     
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<p>在<code>mysql</code>数据库中，我们可能存在以下业务情况</p>
+<p>有：1,2,3,4,5,6,7,8 个数字，分别对应8个状态，而我们可能以其中的某个数字开始进行排序，例如：6,7,8,1,2,3,4,5这样的排序，普通的 <code>order by</code> 就无法实现这样的需求。这时需要这样写：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    字段名</span><br><span class="line"> <span class="keyword">FROM</span> </span><br><span class="line">    表名</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">    field(列名，顺序<span class="number">1</span>，顺序<span class="number">2</span>，顺序<span class="number">3</span>)</span><br></pre></td></tr></table></figure></div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-24T13:12:41+08:00"
-              content="2021-06-24">
-          06-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/24/0c115f76bd22/" itemprop="url">
-            <span itemprop="name">Redis 服务端配置——Could not connect to Redis at 127.0.0.1:6379: Connection refused</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-21T17:37:06+08:00"
-              content="2021-06-21">
-          06-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/21/d54f6e5dbd18/" itemprop="url">
-            <span itemprop="name">Layui解决点击input框时间选择框闪退的问题</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-20T20:43:09+08:00"
-              content="2021-06-20">
-          06-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/20/adf1f2d12933/" itemprop="url">
-            <span itemprop="name">Java常用工具类</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-17T15:05:13+08:00"
-              content="2021-06-17">
-          06-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/17/77062f5462e7/" itemprop="url">
-            <span itemprop="name">JAVA生成随机数工具类RandomStringUtils</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-08T17:46:56+08:00"
-              content="2021-06-08">
-          06-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/08/483730a0bb8d/" itemprop="url">
-            <span itemprop="name">java.lang.IllegalStateException:由于StackOverflower错误</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-07T15:01:15+08:00"
-              content="2021-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/07/7ecf293be481/" itemprop="url">
-            <span itemprop="name">MD5算法详解</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-07T09:19:31+08:00"
-              content="2021-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/07/9e31257b4c50/" itemprop="url">
-            <span itemprop="name">Linux tail 命令</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T22:58:33+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/e0f70f6cb154/" itemprop="url">
-            <span itemprop="name">MySQL清华镜像</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T20:51:04+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/ceadf5efd54e/" itemprop="url">
-            <span itemprop="name">高级Java入门名词</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T17:11:25+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/725b26faf97b/" itemprop="url">
-            <span itemprop="name">hashCode()和equals()的若干问题</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T15:42:40+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/5f14d8a9dee3/" itemprop="url">
-            <span itemprop="name">jQuery Radio默认选中或清空</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T12:31:25+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/3e41739a4386/" itemprop="url">
-            <span itemprop="name">Java集合思维导图</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T12:12:55+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/a685fcc5167c/" itemprop="url">
-            <span itemprop="name">不同内部类的区别</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-05T21:26:29+08:00"
-              content="2021-06-05">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/05/431df01fe42b/" itemprop="url">
-            <span itemprop="name">MySQL针对数字顺序进行排序-自定义排序</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-05T21:06:30+08:00"
-              content="2021-06-05">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/05/5c26ee3d06e7/" itemprop="url">
-            <span itemprop="name">MyBatisPlus分页</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+<p><img src="https://img.api.liujinshui.com/1622110485529-62666e13-f569-4d6f-99c1-5c2986e4af7e.png" alt="排序结果"></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+      <div>
+       
+         <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+      </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>RainoPrime
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blogs.liujinshui.com/2021/06/05/431df01fe42b/" title="MySQL针对数字顺序进行排序-自定义排序">https://blogs.liujinshui.com/2021/06/05/431df01fe42b/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+              <a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F/" rel="tag"><i class="fa fa-tag"></i> 自定义排序</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/05/5c26ee3d06e7/" rel="prev" title="MyBatisPlus分页">
+      <i class="fa fa-chevron-left"></i> MyBatisPlus分页
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/06/a685fcc5167c/" rel="next" title="不同内部类的区别">
+      不同内部类的区别 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blogs.liujinshui.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近在启动tomcat时候总会出现以下错误，时有时无，经查大概率是因为没有在Tomcat里面设置JAVA_OPTS的原因">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java.lang.IllegalStateException:由于StackOverflower错误">
+<meta property="og:url" content="https://blogs.liujinshui.com/2021/06/08/483730a0bb8d/index.html">
+<meta property="og:site_name" content="挽袖清风">
+<meta property="og:description" content="最近在启动tomcat时候总会出现以下错误，时有时无，经查大概率是因为没有在Tomcat里面设置JAVA_OPTS的原因">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-08T09:46:56.000Z">
+<meta property="article:modified_time" content="2021-06-08T09:46:56.000Z">
+<meta property="article:author" content="RainoPrime">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="Tomcat">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blogs.liujinshui.com/2021/06/08/483730a0bb8d/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>java.lang.IllegalStateException:由于StackOverflower错误 | 挽袖清风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">挽袖清风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-后端">
+
+    <a href="/categories/%E5%90%8E%E7%AB%AF" rel="section"><i class="fab fa-java fa-fw"></i>后端</a>
+
+  </li>
+        <li class="menu-item menu-item-前端">
+
+    <a href="/categories/%E5%89%8D%E7%AB%AF" rel="section"><i class="fas fa-pager fa-fw"></i>前端</a>
+
+  </li>
+        <li class="menu-item menu-item-网络">
+
+    <a href="/categories/%E7%BD%91%E7%BB%9C" rel="section"><i class="fab fa-internet-explorer fa-fw"></i>网络</a>
+
+  </li>
+        <li class="menu-item menu-item-nosql">
+
+    <a href="/categories/NoSQL" rel="section"><i class="fas fa-server fa-fw"></i>NoSQL</a>
+
+  </li>
+        <li class="menu-item menu-item-服务器">
+
+    <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8" rel="section"><i class="fab fa-buffer fa-fw"></i>服务器</a>
+
+  </li>
+        <li class="menu-item menu-item-数据库">
+
+    <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93" rel="section"><i class="fas fa-hockey-puck fa-fw"></i>数据库</a>
+
+  </li>
+        <li class="menu-item menu-item-高级框架">
+
+    <a href="/categories/%E9%AB%98%E7%BA%A7%E6%A1%86%E6%9E%B6" rel="section"><i class="far fa-chart-bar fa-fw"></i>高级框架</a>
+
+  </li>
+        <li class="menu-item menu-item-spring系列">
+
+    <a href="/categories/Spring%E7%B3%BB%E5%88%97" rel="section"><i class="fas fa-leaf fa-fw"></i>Spring系列</a>
+
+  </li>
+        <li class="menu-item menu-item-前后端交互">
+
+    <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92" rel="section"><i class="fas fa-code fa-fw"></i>前后端交互</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/rainoprime" class="github-corner" title="访问我的Github" aria-label="访问我的Github" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogs.liujinshui.com/2021/06/08/483730a0bb8d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kong.png">
+      <meta itemprop="name" content="RainoPrime">
+      <meta itemprop="description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挽袖清风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java.lang.IllegalStateException:由于StackOverflower错误
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-08 17:46:56" itemprop="dateCreated datePublished" datetime="2021-06-08T17:46:56+08:00">2021-06-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>最近在启动tomcat时候总会出现以下错误，时有时无，经查大概率是因为没有在Tomcat里面设置JAVA_OPTS的原因</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="STYLUS"><figure class="iseeu highlight /stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">08</span>-Jun-<span class="number">2021</span> <span class="number">17</span>:<span class="number">45</span>:<span class="number">39.979</span> 严重 <span class="selector-attr">[localhost-startStop-1]</span> org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChildInternal</span> ContainerBase<span class="selector-class">.addChild</span>: start:</span><br><span class="line">        org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.LifecycleException</span>: 无法启动组件<span class="selector-attr">[StandardEngine[Catalina]</span><span class="selector-class">.StandardHost</span><span class="selector-attr">[localhost]</span><span class="selector-class">.StandardContext</span><span class="selector-attr">[]</span>]</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.util</span><span class="selector-class">.LifecycleBase</span><span class="selector-class">.handleSubClassException</span>(LifecycleBase<span class="selector-class">.java</span>:<span class="number">440</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.util</span><span class="selector-class">.LifecycleBase</span><span class="selector-class">.start</span>(LifecycleBase<span class="selector-class">.java</span>:<span class="number">198</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChildInternal</span>(ContainerBase<span class="selector-class">.java</span>:<span class="number">743</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChild</span>(ContainerBase<span class="selector-class">.java</span>:<span class="number">719</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.StandardHost</span><span class="selector-class">.addChild</span>(StandardHost<span class="selector-class">.java</span>:<span class="number">705</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.HostConfig</span><span class="selector-class">.deployWAR</span>(HostConfig<span class="selector-class">.java</span>:<span class="number">1015</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span>.HostConfig<span class="variable">$DeployWar</span><span class="selector-class">.run</span>(HostConfig<span class="selector-class">.java</span>:<span class="number">1895</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span>.Executors<span class="variable">$RunnableAdapter</span><span class="selector-class">.call</span>(Executors<span class="selector-class">.java</span>:<span class="number">511</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span><span class="selector-class">.FutureTask</span><span class="selector-class">.run</span>(FutureTask<span class="selector-class">.java</span>:<span class="number">266</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span><span class="selector-class">.ThreadPoolExecutor</span><span class="selector-class">.runWorker</span>(ThreadPoolExecutor<span class="selector-class">.java</span>:<span class="number">1149</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span>.ThreadPoolExecutor<span class="variable">$Worker</span><span class="selector-class">.run</span>(ThreadPoolExecutor<span class="selector-class">.java</span>:<span class="number">624</span>)</span><br><span class="line">                at java<span class="selector-class">.lang</span><span class="selector-class">.Thread</span><span class="selector-class">.run</span>(Thread<span class="selector-class">.java</span>:<span class="number">748</span>)</span><br><span class="line">        Caused by: java<span class="selector-class">.lang</span><span class="selector-class">.IllegalStateException</span>: 由于StackOverflower错误，无法完成对web应用程序<span class="selector-attr">[]</span>的批注的扫描。可能的根本原因包括-Xss的设置过低和非法的循环继承依赖项。正在处理的类层次结 构是<span class="selector-attr">[org.bouncycastle.asn1.ASN1Boolean-&gt;org.bouncycastle.asn1.DERBoolean-&gt;org.bouncycastle.asn1.ASN1Boolean]</span></span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.checkHandlesTypes</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">2071</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processAnnotationsStream</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">2009</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processAnnotationsJar</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1961</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processAnnotationsUrl</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1931</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processAnnotations</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1887</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processClasses</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1186</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.webConfig</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1093</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.configureStart</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">779</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.lifecycleEvent</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">299</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.util</span><span class="selector-class">.LifecycleBase</span><span class="selector-class">.fireLifecycleEvent</span>(LifecycleBase<span class="selector-class">.java</span>:<span class="number">123</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.StandardContext</span><span class="selector-class">.startInternal</span>(StandardContext<span class="selector-class">.java</span>:<span class="number">5069</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.util</span><span class="selector-class">.LifecycleBase</span><span class="selector-class">.start</span>(LifecycleBase<span class="selector-class">.java</span>:<span class="number">183</span>)</span><br><span class="line">                ... <span class="number">10</span> more</span><br><span class="line"><span class="number">08</span>-Jun-<span class="number">2021</span> <span class="number">17</span>:<span class="number">45</span>:<span class="number">39.981</span> 严重 <span class="selector-attr">[localhost-startStop-1]</span> org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.HostConfig</span><span class="selector-class">.deployWAR</span> 部署 Web 应用程序 archive <span class="selector-attr">[E:\tomcat\apache-tomcat-8.5.64\webapps\ROOT.war]</span> 时出错</span><br><span class="line">        java<span class="selector-class">.lang</span><span class="selector-class">.IllegalStateException</span>: ContainerBase<span class="selector-class">.addChild</span>: start: org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.LifecycleException</span>: 无法启动组件<span class="selector-attr">[StandardEngine[Catalina]</span><span class="selector-class">.StandardHost</span><span class="selector-attr">[localhost]</span><span class="selector-class">.StandardContext</span><span class="selector-attr">[]</span>]</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChildInternal</span>(ContainerBase<span class="selector-class">.java</span>:<span class="number">747</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChild</span>(ContainerBase<span class="selector-class">.java</span>:<span class="number">719</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.StandardHost</span><span class="selector-class">.addChild</span>(StandardHost<span class="selector-class">.java</span>:<span class="number">705</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.HostConfig</span><span class="selector-class">.deployWAR</span>(HostConfig<span class="selector-class">.java</span>:<span class="number">1015</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span>.HostConfig<span class="variable">$DeployWar</span><span class="selector-class">.run</span>(HostConfig<span class="selector-class">.java</span>:<span class="number">1895</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span>.Executors<span class="variable">$RunnableAdapter</span><span class="selector-class">.call</span>(Executors<span class="selector-class">.java</span>:<span class="number">511</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span><span class="selector-class">.FutureTask</span><span class="selector-class">.run</span>(FutureTask<span class="selector-class">.java</span>:<span class="number">266</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span><span class="selector-class">.ThreadPoolExecutor</span><span class="selector-class">.runWorker</span>(ThreadPoolExecutor<span class="selector-class">.java</span>:<span class="number">1149</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span>.ThreadPoolExecutor<span class="variable">$Worker</span><span class="selector-class">.run</span>(ThreadPoolExecutor<span class="selector-class">.java</span>:<span class="number">624</span>)</span><br><span class="line">                at java<span class="selector-class">.lang</span><span class="selector-class">.Thread</span><span class="selector-class">.run</span>(Thread<span class="selector-class">.java</span>:<span class="number">748</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>个人认为其主要原因就是没有在<code>$CATALINA_HOME/bin/catalina.sh</code>下设置JAVA_OPTS的<code>JVM</code>虚拟机相关运行参数的变量而导致的</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="INI"><figure class="iseeu highlight /ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">JAVA_OPTS</span>=<span class="string">&quot;-server -Xms2048m -Xmx2048m -Xss512k -XX:PermSize=128m -XX:MaxPermSize=256m&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>将上面代码加入到<code>$CATALINA_HOME/bin/catalina.sh</code>中可以近乎完美的避免此错误，但也会偶尔出现一两次。</p>
+<p>这涉及到JVM调优的相关知识，待了解其原理后对此问题进行详解！</p>
+
+    </div>
+
+    
+    
+    
+      <div>
+       
+         <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+      </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>RainoPrime
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blogs.liujinshui.com/2021/06/08/483730a0bb8d/" title="java.lang.IllegalStateException:由于StackOverflower错误">https://blogs.liujinshui.com/2021/06/08/483730a0bb8d/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/JVM/" rel="tag"><i class="fa fa-tag"></i> JVM</a>
+              <a href="/tags/Tomcat/" rel="tag"><i class="fa fa-tag"></i> Tomcat</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/07/7ecf293be481/" rel="prev" title="MD5算法详解">
+      <i class="fa fa-chevron-left"></i> MD5算法详解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/17/77062f5462e7/" rel="next" title="JAVA生成随机数工具类RandomStringUtils">
+      JAVA生成随机数工具类RandomStringUtils <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">错误信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="RainoPrime"
+      src="/images/kong.png">
+  <p class="site-author-name" itemprop="name">RainoPrime</p>
+  <div class="site-description" itemprop="description">世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/rainoprime" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;rainoprime" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:it@liujinshui.com" title="E-Mail → mailto:it@liujinshui.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/RainoPrime" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;RainoPrime" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.liujinshui.com/" title="个人主页 → https:&#x2F;&#x2F;www.liujinshui.com" rel="noopener" target="_blank"><i class="fa fa-home fa-fw"></i>个人主页</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RainoPrime</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

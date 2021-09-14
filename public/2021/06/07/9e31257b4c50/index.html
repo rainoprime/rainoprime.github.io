@@ -21,17 +21,21 @@
     var CONFIG = {"hostname":"blogs.liujinshui.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="挽袖清风">
-<meta property="og:url" content="https://blogs.liujinshui.com/archives/2021/06/index.html">
+  <meta name="description" content="全文引用：runoob 仅增加查看tomcat运行日志命令，剩余全文与引用一致">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux tail 命令">
+<meta property="og:url" content="https://blogs.liujinshui.com/2021/06/07/9e31257b4c50/index.html">
 <meta property="og:site_name" content="挽袖清风">
-<meta property="og:description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
+<meta property="og:description" content="全文引用：runoob 仅增加查看tomcat运行日志命令，剩余全文与引用一致">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-07T01:19:31.000Z">
+<meta property="article:modified_time" content="2021-06-07T01:19:31.000Z">
 <meta property="article:author" content="RainoPrime">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Centos">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blogs.liujinshui.com/archives/2021/06/">
+<link rel="canonical" href="https://blogs.liujinshui.com/2021/06/07/9e31257b4c50/">
 
 
 <script id="page-configurations">
@@ -39,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 挽袖清风</title>
+  <title>Linux tail 命令 | 挽袖清风</title>
   
 
 
@@ -213,330 +217,157 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 18 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogs.liujinshui.com/2021/06/07/9e31257b4c50/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kong.png">
+      <meta itemprop="name" content="RainoPrime">
+      <meta itemprop="description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挽袖清风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux tail 命令
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-07 09:19:31" itemprop="dateCreated datePublished" datetime="2021-06-07T09:19:31+08:00">2021-06-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
+        <blockquote>
+<p> 全文引用：<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-tail.html">runoob</a></p>
+<p>仅增加查看tomcat运行日志命令，剩余全文与引用一致</p>
+</blockquote>
+<span id="more"></span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<p><code>tail</code> 命令可用于查看文件的内容，有一个常用的参数 <code>-f </code>常用于查阅正在改变的日志文件。</p>
+<p><code>tail -f filename</code> 会把 filename 文件里的最尾部的内容显示在屏幕上，并且不断刷新，只要 filename 更新就可以看到最新的文件内容。</p>
+<p>tomcat下查看日志：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tomcat logs目录下</span></span><br><span class="line"><span class="attribute">tail</span> -f catalina.out</span><br></pre></td></tr></table></figure></div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-24T13:12:41+08:00"
-              content="2021-06-24">
-          06-24
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/24/0c115f76bd22/" itemprop="url">
-            <span itemprop="name">Redis 服务端配置——Could not connect to Redis at 127.0.0.1:6379: Connection refused</span>
-          </a>
-      </div>
 
-    </header>
-  </article>
+<p><strong>命令格式：</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tail</span> [参数] [文件]  </span><br></pre></td></tr></table></figure></div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<p><strong>参数：</strong></p>
+<ul>
+<li>-f 循环读取</li>
+<li>-q 不显示处理信息</li>
+<li>-v 显示详细的处理信息</li>
+<li>-c&lt;数目&gt; 显示的字节数</li>
+<li>-n&lt;行数&gt; 显示文件的尾部 n 行内容</li>
+<li>–pid=PID 与-f合用,表示在进程ID,PID死掉之后结束</li>
+<li>-q, –quiet, –silent 从不输出给出文件名的首部</li>
+<li>-s, –sleep-interval=S 与-f合用,表示在每次反复的间隔休眠S秒</li>
+</ul>
+<p><strong>实例</strong></p>
+<p>要显示 notes.log 文件的最后 10 行，请输入以下命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tail</span> notes.log         <span class="comment"># 默认显示最后 10 行</span></span><br></pre></td></tr></table></figure></div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-21T17:37:06+08:00"
-              content="2021-06-21">
-          06-21
-        </time>
-      </div>
+<p>要跟踪名为 notes.log 的文件的增长情况，请输入以下命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tail</span> -f notes.log</span><br></pre></td></tr></table></figure></div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/21/d54f6e5dbd18/" itemprop="url">
-            <span itemprop="name">Layui解决点击input框时间选择框闪退的问题</span>
-          </a>
-      </div>
+<p>此命令显示 notes.log 文件的最后 10 行。当将某些行添加至 notes.log 文件时，tail 命令会继续显示这些行。 显示一直继续，直到您按下（Ctrl-C）组合键停止显示。</p>
+<p>显示文件 notes.log 的内容，从第 20 行至文件末尾:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tail</span> -n +<span class="number">20</span> notes.log</span><br></pre></td></tr></table></figure></div>
 
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-20T20:43:09+08:00"
-              content="2021-06-20">
-          06-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/20/adf1f2d12933/" itemprop="url">
-            <span itemprop="name">Java常用工具类</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-17T15:05:13+08:00"
-              content="2021-06-17">
-          06-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/17/77062f5462e7/" itemprop="url">
-            <span itemprop="name">JAVA生成随机数工具类RandomStringUtils</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-08T17:46:56+08:00"
-              content="2021-06-08">
-          06-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/08/483730a0bb8d/" itemprop="url">
-            <span itemprop="name">java.lang.IllegalStateException:由于StackOverflower错误</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-07T15:01:15+08:00"
-              content="2021-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/07/7ecf293be481/" itemprop="url">
-            <span itemprop="name">MD5算法详解</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-07T09:19:31+08:00"
-              content="2021-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/07/9e31257b4c50/" itemprop="url">
-            <span itemprop="name">Linux tail 命令</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T22:58:33+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/e0f70f6cb154/" itemprop="url">
-            <span itemprop="name">MySQL清华镜像</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T20:51:04+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/ceadf5efd54e/" itemprop="url">
-            <span itemprop="name">高级Java入门名词</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T17:11:25+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/725b26faf97b/" itemprop="url">
-            <span itemprop="name">hashCode()和equals()的若干问题</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T15:42:40+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/5f14d8a9dee3/" itemprop="url">
-            <span itemprop="name">jQuery Radio默认选中或清空</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T12:31:25+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/3e41739a4386/" itemprop="url">
-            <span itemprop="name">Java集合思维导图</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T12:12:55+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/a685fcc5167c/" itemprop="url">
-            <span itemprop="name">不同内部类的区别</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-05T21:26:29+08:00"
-              content="2021-06-05">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/05/431df01fe42b/" itemprop="url">
-            <span itemprop="name">MySQL针对数字顺序进行排序-自定义排序</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-05T21:06:30+08:00"
-              content="2021-06-05">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/05/5c26ee3d06e7/" itemprop="url">
-            <span itemprop="name">MyBatisPlus分页</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+<p>显示文件 notes.log 的最后 10 个字符:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tail</span> -c <span class="number">10</span> notes.log</span><br></pre></td></tr></table></figure></div>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+      <div>
+       
+         <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+      </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>RainoPrime
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blogs.liujinshui.com/2021/06/07/9e31257b4c50/" title="Linux tail 命令">https://blogs.liujinshui.com/2021/06/07/9e31257b4c50/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Centos/" rel="tag"><i class="fa fa-tag"></i> Centos</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/06/e0f70f6cb154/" rel="prev" title="MySQL清华镜像">
+      <i class="fa fa-chevron-left"></i> MySQL清华镜像
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/07/7ecf293be481/" rel="next" title="MD5算法详解">
+      MD5算法详解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 

@@ -21,17 +21,26 @@
     var CONFIG = {"hostname":"blogs.liujinshui.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="挽袖清风">
-<meta property="og:url" content="https://blogs.liujinshui.com/archives/2021/06/index.html">
+  <meta name="description" content="引用：.NET云原生 去掉敏感字眼，其他内容与引用一致，供个人学习！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MD5算法详解">
+<meta property="og:url" content="https://blogs.liujinshui.com/2021/06/07/7ecf293be481/index.html">
 <meta property="og:site_name" content="挽袖清风">
-<meta property="og:description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
+<meta property="og:description" content="引用：.NET云原生 去掉敏感字眼，其他内容与引用一致，供个人学习！">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.api.liujinshui.com/e90b3312-121d-4654-9a7f-9db4269af3d6.png">
+<meta property="og:image" content="https://img.api.liujinshui.com/03cecdbf-3e8b-4427-804a-6e2100c7b10b.png">
+<meta property="og:image" content="https://img.api.liujinshui.com/20896856-48d4-4771-9701-eecdcafb7c35.png">
+<meta property="og:image" content="https://img.api.liujinshui.com/08114dbc-c995-4e18-bfa6-2cfe3e65cde8.png">
+<meta property="article:published_time" content="2021-06-07T07:01:15.000Z">
+<meta property="article:modified_time" content="2021-06-07T07:01:15.000Z">
 <meta property="article:author" content="RainoPrime">
+<meta property="article:tag" content="MD5">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.api.liujinshui.com/e90b3312-121d-4654-9a7f-9db4269af3d6.png">
 
-<link rel="canonical" href="https://blogs.liujinshui.com/archives/2021/06/">
+<link rel="canonical" href="https://blogs.liujinshui.com/2021/06/07/7ecf293be481/">
 
 
 <script id="page-configurations">
@@ -39,12 +48,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 挽袖清风</title>
+  <title>MD5算法详解 | 挽袖清风</title>
   
 
 
@@ -213,330 +222,164 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 18 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogs.liujinshui.com/2021/06/07/7ecf293be481/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kong.png">
+      <meta itemprop="name" content="RainoPrime">
+      <meta itemprop="description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挽袖清风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MD5算法详解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-07 15:01:15" itemprop="dateCreated datePublished" datetime="2021-06-07T15:01:15+08:00">2021-06-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
+        <blockquote>
+<p>引用：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/JulianHuang/p/14858339.html#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95">.NET云原生</a></p>
+<p>去掉敏感字眼，其他内容与引用一致，供个人学习！</p>
+</blockquote>
+<span id="more"></span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-24T13:12:41+08:00"
-              content="2021-06-24">
-          06-24
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/24/0c115f76bd22/" itemprop="url">
-            <span itemprop="name">Redis 服务端配置——Could not connect to Redis at 127.0.0.1:6379: Connection refused</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-21T17:37:06+08:00"
-              content="2021-06-21">
-          06-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/21/d54f6e5dbd18/" itemprop="url">
-            <span itemprop="name">Layui解决点击input框时间选择框闪退的问题</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-20T20:43:09+08:00"
-              content="2021-06-20">
-          06-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/20/adf1f2d12933/" itemprop="url">
-            <span itemprop="name">Java常用工具类</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-17T15:05:13+08:00"
-              content="2021-06-17">
-          06-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/17/77062f5462e7/" itemprop="url">
-            <span itemprop="name">JAVA生成随机数工具类RandomStringUtils</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-08T17:46:56+08:00"
-              content="2021-06-08">
-          06-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/08/483730a0bb8d/" itemprop="url">
-            <span itemprop="name">java.lang.IllegalStateException:由于StackOverflower错误</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-07T15:01:15+08:00"
-              content="2021-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/07/7ecf293be481/" itemprop="url">
-            <span itemprop="name">MD5算法详解</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-07T09:19:31+08:00"
-              content="2021-06-07">
-          06-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/07/9e31257b4c50/" itemprop="url">
-            <span itemprop="name">Linux tail 命令</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T22:58:33+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/e0f70f6cb154/" itemprop="url">
-            <span itemprop="name">MySQL清华镜像</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T20:51:04+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/ceadf5efd54e/" itemprop="url">
-            <span itemprop="name">高级Java入门名词</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T17:11:25+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/725b26faf97b/" itemprop="url">
-            <span itemprop="name">hashCode()和equals()的若干问题</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T15:42:40+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/5f14d8a9dee3/" itemprop="url">
-            <span itemprop="name">jQuery Radio默认选中或清空</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T12:31:25+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/3e41739a4386/" itemprop="url">
-            <span itemprop="name">Java集合思维导图</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-06T12:12:55+08:00"
-              content="2021-06-06">
-          06-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/06/a685fcc5167c/" itemprop="url">
-            <span itemprop="name">不同内部类的区别</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-05T21:26:29+08:00"
-              content="2021-06-05">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/05/431df01fe42b/" itemprop="url">
-            <span itemprop="name">MySQL针对数字顺序进行排序-自定义排序</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-05T21:06:30+08:00"
-              content="2021-06-05">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/05/5c26ee3d06e7/" itemprop="url">
-            <span itemprop="name">MyBatisPlus分页</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+<p>MD5不是加密算法，是摘要算法。</p>
+<p>加密算法、摘要算法的定义和场景：<br><img src="https://img.api.liujinshui.com/e90b3312-121d-4654-9a7f-9db4269af3d6.png"></p>
+<p>加密算法的目的，在于使别人无法成功查看加密的数据，并且在需要的时候还可以对数据进行解密来重新查看数据。</p>
+<p>而MD5算法是一种哈希算法，哈希算法的设计目的本身就决定了，它在大多数情况下都是不可逆的，即你通过哈希算法得到的数据，无法经过任何算法还原回去。 所以既然不能将数据还原，也就不能称之为解密；既然不能解密，那么哈希的过程自然也就不能称作是[加密]了。</p>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p><strong>加密</strong>： 是以某种特殊的算法改变原有的信息，使得未授权的用户即使获得已加密的信息，但因不知解密的方法，仍然无法了解信息的内容。</p>
+<p><strong>解密</strong>：加密的逆过程为解密，即将该加密信息转化为其原来信息的过程。</p>
+<p>加密算法分为对称加密和非对称加密，其中对称加密算法的加解密密钥相同，非对称加解密的密钥不同。</p>
+<p><img src="https://img.api.liujinshui.com/03cecdbf-3e8b-4427-804a-6e2100c7b10b.png"></p>
+<blockquote>
+<p>HTTPS就同时用到非对称加密和对称加密，在连接建立的阶段，使用非对称加解密(传输密钥)， 在通信阶段使用对称密钥加解密数据。</p>
+</blockquote>
+<p><img src="https://img.api.liujinshui.com/20896856-48d4-4771-9701-eecdcafb7c35.png"></p>
+<h2 id="摘要算法"><a href="#摘要算法" class="headerlink" title="摘要算法"></a>摘要算法</h2><p>摘要算法，又称哈希算法、散列算法。通过一个函数，将任意长度的内容转换为一个固定长度的数据串。</p>
+<p><img src="https://img.api.liujinshui.com/08114dbc-c995-4e18-bfa6-2cfe3e65cde8.png"></p>
+<p>摘要算法之所以能指出数据是否被篡改，就是因为摘要函数是一个单向函数，计算很容易，但通过摘要(digest) 反推data却非常困难，而且，对于原始数据做一个bit的修改，都会导致计算出的摘要完全不同。</p>
+<blockquote>
+<p>使用迅雷下载某片的时候，下载站会顺带给你一个MD5校验码；<br>你找一个MD5校验工具，对下载下来的文件执行MD5算法，将得到的哈希值与下载站附带的MD5值对比，如果值是相同的，说明从该网站下载的文件没有损坏。</p>
+</blockquote>
+<h3 id="HMAC"><a href="#HMAC" class="headerlink" title="HMAC"></a>HMAC</h3><p>延伸聊一个结合了密钥和哈希功能的请求认证方案：<br>HMAC ( hash-based message authenticated code)</p>
+<p>很多第三方平台都采用这种授权认证方案，你回想一下，api平台是不是经常给你一对<code>AppID</code> <code>Serect Key</code></p>
+<ol>
+<li>Client &amp; Server 都知晓一个私钥<code>serect key</code></li>
+<li>客户端每次请求时，会针对(请求数据+ secret key)生成一个hash值<br><code>HMAC = hashFunc(secret key + message)</code></li>
+<li>客户端将哈希值做为请求的一部分，一起发送</li>
+<li>当服务端收到请求， 对( 收到的请求+ 查到的<code>Serectkey&#39;</code>)生成哈希，将计算的哈希值与请求中附带的原哈希值对比，如果相同，则认定请求来自受信Client，且请求未被篡改。</li>
+</ol>
+<p>为什么会有这样的效果？</p>
+<p>首先：Client 和Server的哈希值相同，根据哈希算法的设计初衷，说明请求过程未被篡改；</p>
+<p>另一方面也反推 Client 和Server使用了相同的<code>Serect Key</code> , 而<code>Serect Key</code>是私密信息，故此处的Client不可抵赖。</p>
+<blockquote>
+<p>还可以考虑在客户端生成哈希时加入timestamp时间戳（请求还要附带这个时间戳），服务端收到后先对比服务器时间戳与请求时间戳，限制15s内为有效请求，再对（请求信息+ 时间戳+ serectkey)哈希对比，避免重放攻击。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文给出的示例： HTTPS、迅雷MD5校验，足够帮助你了解加密算法和摘要算法的设计目的。</p>
+<ul>
+<li>加密算法的目的是： 防止信息被偷看</li>
+<li>摘要算法的目的是： 防止信息被篡改</li>
+</ul>
+<p>以后使用时候也能有的放矢，面试时也不会闹出笑话。</p>
+<p>最后给出的WebAPI授权方案<code>HMAC</code>，算是密钥+哈希算法结合的一个应用场景， 具备快速、自签名的特点。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+      <div>
+       
+         <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+      </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>RainoPrime
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blogs.liujinshui.com/2021/06/07/7ecf293be481/" title="MD5算法详解">https://blogs.liujinshui.com/2021/06/07/7ecf293be481/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MD5/" rel="tag"><i class="fa fa-tag"></i> MD5</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/07/9e31257b4c50/" rel="prev" title="Linux tail 命令">
+      <i class="fa fa-chevron-left"></i> Linux tail 命令
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/08/483730a0bb8d/" rel="next" title="java.lang.IllegalStateException:由于StackOverflower错误">
+      java.lang.IllegalStateException:由于StackOverflower错误 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -589,6 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">加密算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">摘要算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HMAC"><span class="nav-number">2.1.</span> <span class="nav-text">HMAC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
