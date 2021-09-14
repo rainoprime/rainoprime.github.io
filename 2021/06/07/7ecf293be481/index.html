@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blogs.liujinshui.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="引用：.NET云原生 去掉敏感字眼，其他内容与引用一致，供个人学习！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MD5算法详解">
+<meta property="og:url" content="https://blogs.liujinshui.com/2021/06/07/7ecf293be481/index.html">
+<meta property="og:site_name" content="挽袖清风">
+<meta property="og:description" content="引用：.NET云原生 去掉敏感字眼，其他内容与引用一致，供个人学习！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.api.liujinshui.com/e90b3312-121d-4654-9a7f-9db4269af3d6.png">
+<meta property="og:image" content="https://img.api.liujinshui.com/03cecdbf-3e8b-4427-804a-6e2100c7b10b.png">
+<meta property="og:image" content="https://img.api.liujinshui.com/20896856-48d4-4771-9701-eecdcafb7c35.png">
+<meta property="og:image" content="https://img.api.liujinshui.com/08114dbc-c995-4e18-bfa6-2cfe3e65cde8.png">
+<meta property="article:published_time" content="2021-06-07T07:01:15.000Z">
+<meta property="article:modified_time" content="2021-06-07T07:01:15.000Z">
+<meta property="article:author" content="RainoPrime">
+<meta property="article:tag" content="MD5">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.api.liujinshui.com/e90b3312-121d-4654-9a7f-9db4269af3d6.png">
+
+<link rel="canonical" href="https://blogs.liujinshui.com/2021/06/07/7ecf293be481/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MD5算法详解 | 挽袖清风</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">挽袖清风</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-后端">
+
+    <a href="/categories/%E5%90%8E%E7%AB%AF" rel="section"><i class="fab fa-java fa-fw"></i>后端</a>
+
+  </li>
+        <li class="menu-item menu-item-前端">
+
+    <a href="/categories/%E5%89%8D%E7%AB%AF" rel="section"><i class="fas fa-pager fa-fw"></i>前端</a>
+
+  </li>
+        <li class="menu-item menu-item-网络">
+
+    <a href="/categories/%E7%BD%91%E7%BB%9C" rel="section"><i class="fab fa-internet-explorer fa-fw"></i>网络</a>
+
+  </li>
+        <li class="menu-item menu-item-nosql">
+
+    <a href="/categories/NoSQL" rel="section"><i class="fas fa-server fa-fw"></i>NoSQL</a>
+
+  </li>
+        <li class="menu-item menu-item-服务器">
+
+    <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8" rel="section"><i class="fab fa-buffer fa-fw"></i>服务器</a>
+
+  </li>
+        <li class="menu-item menu-item-数据库">
+
+    <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93" rel="section"><i class="fas fa-hockey-puck fa-fw"></i>数据库</a>
+
+  </li>
+        <li class="menu-item menu-item-高级框架">
+
+    <a href="/categories/%E9%AB%98%E7%BA%A7%E6%A1%86%E6%9E%B6" rel="section"><i class="far fa-chart-bar fa-fw"></i>高级框架</a>
+
+  </li>
+        <li class="menu-item menu-item-spring系列">
+
+    <a href="/categories/Spring%E7%B3%BB%E5%88%97" rel="section"><i class="fas fa-leaf fa-fw"></i>Spring系列</a>
+
+  </li>
+        <li class="menu-item menu-item-前后端交互">
+
+    <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92" rel="section"><i class="fas fa-code fa-fw"></i>前后端交互</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/rainoprime" class="github-corner" title="访问我的Github" aria-label="访问我的Github" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blogs.liujinshui.com/2021/06/07/7ecf293be481/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/kong.png">
+      <meta itemprop="name" content="RainoPrime">
+      <meta itemprop="description" content="世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挽袖清风">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MD5算法详解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-07 15:01:15" itemprop="dateCreated datePublished" datetime="2021-06-07T15:01:15+08:00">2021-06-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>引用：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/JulianHuang/p/14858339.html#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95">.NET云原生</a></p>
+<p>去掉敏感字眼，其他内容与引用一致，供个人学习！</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<p>MD5不是加密算法，是摘要算法。</p>
+<p>加密算法、摘要算法的定义和场景：<br><img src="https://img.api.liujinshui.com/e90b3312-121d-4654-9a7f-9db4269af3d6.png"></p>
+<p>加密算法的目的，在于使别人无法成功查看加密的数据，并且在需要的时候还可以对数据进行解密来重新查看数据。</p>
+<p>而MD5算法是一种哈希算法，哈希算法的设计目的本身就决定了，它在大多数情况下都是不可逆的，即你通过哈希算法得到的数据，无法经过任何算法还原回去。 所以既然不能将数据还原，也就不能称之为解密；既然不能解密，那么哈希的过程自然也就不能称作是[加密]了。</p>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p><strong>加密</strong>： 是以某种特殊的算法改变原有的信息，使得未授权的用户即使获得已加密的信息，但因不知解密的方法，仍然无法了解信息的内容。</p>
+<p><strong>解密</strong>：加密的逆过程为解密，即将该加密信息转化为其原来信息的过程。</p>
+<p>加密算法分为对称加密和非对称加密，其中对称加密算法的加解密密钥相同，非对称加解密的密钥不同。</p>
+<p><img src="https://img.api.liujinshui.com/03cecdbf-3e8b-4427-804a-6e2100c7b10b.png"></p>
+<blockquote>
+<p>HTTPS就同时用到非对称加密和对称加密，在连接建立的阶段，使用非对称加解密(传输密钥)， 在通信阶段使用对称密钥加解密数据。</p>
+</blockquote>
+<p><img src="https://img.api.liujinshui.com/20896856-48d4-4771-9701-eecdcafb7c35.png"></p>
+<h2 id="摘要算法"><a href="#摘要算法" class="headerlink" title="摘要算法"></a>摘要算法</h2><p>摘要算法，又称哈希算法、散列算法。通过一个函数，将任意长度的内容转换为一个固定长度的数据串。</p>
+<p><img src="https://img.api.liujinshui.com/08114dbc-c995-4e18-bfa6-2cfe3e65cde8.png"></p>
+<p>摘要算法之所以能指出数据是否被篡改，就是因为摘要函数是一个单向函数，计算很容易，但通过摘要(digest) 反推data却非常困难，而且，对于原始数据做一个bit的修改，都会导致计算出的摘要完全不同。</p>
+<blockquote>
+<p>使用迅雷下载某片的时候，下载站会顺带给你一个MD5校验码；<br>你找一个MD5校验工具，对下载下来的文件执行MD5算法，将得到的哈希值与下载站附带的MD5值对比，如果值是相同的，说明从该网站下载的文件没有损坏。</p>
+</blockquote>
+<h3 id="HMAC"><a href="#HMAC" class="headerlink" title="HMAC"></a>HMAC</h3><p>延伸聊一个结合了密钥和哈希功能的请求认证方案：<br>HMAC ( hash-based message authenticated code)</p>
+<p>很多第三方平台都采用这种授权认证方案，你回想一下，api平台是不是经常给你一对<code>AppID</code> <code>Serect Key</code></p>
+<ol>
+<li>Client &amp; Server 都知晓一个私钥<code>serect key</code></li>
+<li>客户端每次请求时，会针对(请求数据+ secret key)生成一个hash值<br><code>HMAC = hashFunc(secret key + message)</code></li>
+<li>客户端将哈希值做为请求的一部分，一起发送</li>
+<li>当服务端收到请求， 对( 收到的请求+ 查到的<code>Serectkey&#39;</code>)生成哈希，将计算的哈希值与请求中附带的原哈希值对比，如果相同，则认定请求来自受信Client，且请求未被篡改。</li>
+</ol>
+<p>为什么会有这样的效果？</p>
+<p>首先：Client 和Server的哈希值相同，根据哈希算法的设计初衷，说明请求过程未被篡改；</p>
+<p>另一方面也反推 Client 和Server使用了相同的<code>Serect Key</code> , 而<code>Serect Key</code>是私密信息，故此处的Client不可抵赖。</p>
+<blockquote>
+<p>还可以考虑在客户端生成哈希时加入timestamp时间戳（请求还要附带这个时间戳），服务端收到后先对比服务器时间戳与请求时间戳，限制15s内为有效请求，再对（请求信息+ 时间戳+ serectkey)哈希对比，避免重放攻击。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文给出的示例： HTTPS、迅雷MD5校验，足够帮助你了解加密算法和摘要算法的设计目的。</p>
+<ul>
+<li>加密算法的目的是： 防止信息被偷看</li>
+<li>摘要算法的目的是： 防止信息被篡改</li>
+</ul>
+<p>以后使用时候也能有的放矢，面试时也不会闹出笑话。</p>
+<p>最后给出的WebAPI授权方案<code>HMAC</code>，算是密钥+哈希算法结合的一个应用场景， 具备快速、自签名的特点。</p>
+
+    </div>
+
+    
+    
+    
+      <div>
+       
+         <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+      </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>RainoPrime
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blogs.liujinshui.com/2021/06/07/7ecf293be481/" title="MD5算法详解">https://blogs.liujinshui.com/2021/06/07/7ecf293be481/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MD5/" rel="tag"><i class="fa fa-tag"></i> MD5</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/07/9e31257b4c50/" rel="prev" title="Linux tail 命令">
+      <i class="fa fa-chevron-left"></i> Linux tail 命令
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/08/483730a0bb8d/" rel="next" title="java.lang.IllegalStateException:由于StackOverflower错误">
+      java.lang.IllegalStateException:由于StackOverflower错误 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">加密算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">摘要算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HMAC"><span class="nav-number">2.1.</span> <span class="nav-text">HMAC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="RainoPrime"
+      src="/images/kong.png">
+  <p class="site-author-name" itemprop="name">RainoPrime</p>
+  <div class="site-description" itemprop="description">世界之大，永远记住自己的渺小，在任何时候脚步不能停止向前！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/rainoprime" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;rainoprime" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:it@liujinshui.com" title="E-Mail → mailto:it@liujinshui.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/RainoPrime" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;RainoPrime" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.liujinshui.com/" title="个人主页 → https:&#x2F;&#x2F;www.liujinshui.com" rel="noopener" target="_blank"><i class="fa fa-home fa-fw"></i>个人主页</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RainoPrime</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

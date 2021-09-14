@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>JAVA生成随机数工具类RandomStringUtils</title>
+    <url>/2021/06/17/77062f5462e7/</url>
+    <content><![CDATA[<blockquote>
+<p>引用：<a href="https://blog.csdn.net/yaomingyang/article/details/79107764">艾米莉Emily</a></p>
+<p>本文全文引用上述链接，供个人记录学习！</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<p> public static String random(int count, boolean letters, boolean numbers)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * count 创建一个随机字符串，其长度是指定的字符数,字符将从参数的字母数字字符集中选择，如参数所示。</span></span><br><span class="line"><span class="comment"> * letters true,生成的字符串可以包括字母字符</span></span><br><span class="line"><span class="comment"> * numbers true,生成的字符串可以包含数字字符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">String random = RandomStringUtils.random(<span class="number">15</span>, <span class="keyword">true</span>, <span class="keyword">false</span>);</span><br><span class="line">System.out.println(random);</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String random(int count)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度是指定的字符数。</span></span><br><span class="line"><span class="comment"> * 将从所有字符集中选择字符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.random(<span class="number">22</span>);</span><br><span class="line">System.out.println(random);</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String random(int count, String chars)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度是指定的字符数。</span></span><br><span class="line"><span class="comment"> * 字符将从字符串指定的字符集中选择，不能为空。如果NULL，则使用所有字符集。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.random(<span class="number">15</span>, <span class="string">&quot;abcdefgABCDEFG123456789&quot;</span>);</span><br><span class="line">System.out.println(random);这里写代码片</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String random(int count, int start,int end,boolean letters, boolean numbers)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度是指定的字符数,字符将从参数的字母数字字符集中选择，如参数所示。</span></span><br><span class="line"><span class="comment"> * count:计算创建的随机字符长度</span></span><br><span class="line"><span class="comment"> * start:字符集在开始时的位置</span></span><br><span class="line"><span class="comment"> * end:字符集在结束前的位置，必须大于65</span></span><br><span class="line"><span class="comment"> * letters true,生成的字符串可以包括字母字符</span></span><br><span class="line"><span class="comment"> * numbers true,生成的字符串可以包含数字字符</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.random(<span class="number">1009</span>, <span class="number">5</span>, <span class="number">129</span>, <span class="keyword">true</span>, <span class="keyword">true</span>);这里写代码片</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String randomAlphabetic(int count)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 产生一个长度为指定的随机字符串的字符数，字符将从拉丁字母（a-z、A-Z的选择）。</span></span><br><span class="line"><span class="comment"> * count:创建随机字符串的长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.randomAlphabetic(<span class="number">15</span>);</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String randomAlphabetic(int minLengthInclusive, int maxLengthExclusive)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度介于包含最小值和最大最大值之间,，字符将从拉丁字母（a-z、A-Z的选择）。</span></span><br><span class="line"><span class="comment"> * minLengthInclusive ：要生成的字符串的包含最小长度</span></span><br><span class="line"><span class="comment"> * maxLengthExclusive ：要生成的字符串的包含最大长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.randomAlphabetic(<span class="number">2</span>, <span class="number">15</span>);这里写代码片</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String randomAlphanumeric(int count)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度是指定的字符数，字符将从拉丁字母（a-z、A-Z）和数字0-9中选择。</span></span><br><span class="line"><span class="comment"> * count ：创建的随机数长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.randomAlphanumeric(<span class="number">15</span>);这里写代码片</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String randomAlphanumeric(int minLengthInclusive,int maxLengthExclusive</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度介于包含最小值和最大最大值之间,字符将从拉丁字母（a-z、A-Z）和数字0-9中选择。</span></span><br><span class="line"><span class="comment"> * minLengthInclusive ：要生成的字符串的包含最小长度</span></span><br><span class="line"><span class="comment"> * maxLengthExclusive ：要生成的字符串的包含最大长度</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.randomAlphanumeric(<span class="number">5</span>, <span class="number">68</span>);这里写代码片</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String randomAscii(int count)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度是指定的字符数，字符将从ASCII值介于32到126之间的字符集中选择（包括）</span></span><br><span class="line"><span class="comment"> * count:随机字符串的长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.randomAscii(<span class="number">15</span>);</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String randomAscii(int minLengthInclusive, int maxLengthExclusive)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度介于包含最小值和最大最大值之间,字符将从ASCII值介于32到126之间的字符集中选择（包括）</span></span><br><span class="line"><span class="comment"> * minLengthInclusive ：要生成的字符串的包含最小长度</span></span><br><span class="line"><span class="comment"> * maxLengthExclusive ：要生成的字符串的包含最大长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.randomAscii(<span class="number">15</span>, <span class="number">30</span>);这里写代码片</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String randomNumeric(int count)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度是指定的字符数，将从数字字符集中选择字符。</span></span><br><span class="line"><span class="comment"> * count:生成随机数的长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.randomNumeric(<span class="number">15</span>);</span><br></pre></td></tr></table></figure></div>
+
+
+<blockquote>
+<p>public static String randomNumeric(int minLengthInclusive, int maxLengthExclusive)</p>
+</blockquote>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建一个随机字符串，其长度介于包含最小值和最大最大值之间,将从数字字符集中选择字符.</span></span><br><span class="line"><span class="comment"> * minLengthInclusive, 要生成的字符串的包含最小长度</span></span><br><span class="line"><span class="comment"> * maxLengthExclusive 要生成的字符串的包含最大长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">random = RandomStringUtils.randomNumeric(<span class="number">15</span>, <span class="number">20</span>);</span><br></pre></td></tr></table></figure></div>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java Utils</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java常用工具类</title>
+    <url>/2021/06/20/adf1f2d12933/</url>
+    <content><![CDATA[<blockquote>
+<p>Java工具类库，可以大大简化代码量，提升开发效率。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="Java自带的工具方法"><a href="#Java自带的工具方法" class="headerlink" title="Java自带的工具方法"></a>Java自带的工具方法</h1><h2 id="List集合拼接成以逗号分隔的字符串"><a href="#List集合拼接成以逗号分隔的字符串" class="headerlink" title="List集合拼接成以逗号分隔的字符串"></a>List集合拼接成以逗号分隔的字符串</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如何把list集合拼接成以逗号分隔的字符串 a,b,c  </span></span><br><span class="line">List&lt;String&gt; list = Arrays.asList(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);  </span><br><span class="line"><span class="comment">// 第一种方法，可以用stream流  </span></span><br><span class="line">String join = list.stream().collect(Collectors.joining(<span class="string">&quot;,&quot;</span>));  </span><br><span class="line">System.out.println(join); <span class="comment">// 输出 a,b,c  </span></span><br><span class="line"><span class="comment">// 第二种方法，其实String也有join方法可以实现这个功能  </span></span><br><span class="line">String join = String.join(<span class="string">&quot;,&quot;</span>, list);  </span><br><span class="line">System.out.println(join); <span class="comment">// 输出 a, b, c  </span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="比较两个字符串是否相等，忽略大小写"><a href="#比较两个字符串是否相等，忽略大小写" class="headerlink" title="比较两个字符串是否相等，忽略大小写"></a>比较两个字符串是否相等，忽略大小写</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (strA.equalsIgnoreCase(strB)) &#123;  </span><br><span class="line">  System.out.println(<span class="string">&quot;相等&quot;</span>);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="比较两个对象是否相等"><a href="#比较两个对象是否相等" class="headerlink" title="比较两个对象是否相等"></a>比较两个对象是否相等</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">Objects.equals(strA, strB);  </span><br></pre></td></tr></table></figure></div>
+
+<p>源码：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object a, Object b)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> (a == b) || (a != <span class="keyword">null</span> &amp;&amp; a.equals(b));  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="两个List集合取交集"><a href="#两个List集合取交集" class="headerlink" title="两个List集合取交集"></a>两个List集合取交集</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;&gt;();  </span><br><span class="line">list1.add(<span class="string">&quot;a&quot;</span>);  </span><br><span class="line">list1.add(<span class="string">&quot;b&quot;</span>);  </span><br><span class="line">list1.add(<span class="string">&quot;c&quot;</span>);  </span><br><span class="line">List&lt;String&gt; list2 = <span class="keyword">new</span> ArrayList&lt;&gt;();  </span><br><span class="line">list2.add(<span class="string">&quot;a&quot;</span>);  </span><br><span class="line">list2.add(<span class="string">&quot;b&quot;</span>);  </span><br><span class="line">list2.add(<span class="string">&quot;d&quot;</span>);  </span><br><span class="line">list1.retainAll(list2);  </span><br><span class="line">System.out.println(list1); <span class="comment">// 输出[a, b]  </span></span><br></pre></td></tr></table></figure></div>
+
+<h1 id="apache-commons工具类库"><a href="#apache-commons工具类库" class="headerlink" title="apache commons工具类库"></a>apache commons工具类库</h1><p>apache commons是最强大的，也是使用最广泛的工具类库，说几个最常用的。</p>
+<h2 id="commons-lang，java-lang的增强版"><a href="#commons-lang，java-lang的增强版" class="headerlink" title="commons-lang，java.lang的增强版"></a>commons-lang，java.lang的增强版</h2><p>建议使用commons-lang3，优化了一些api，原来的commons-lang已停止更新</p>
+<p>Maven依赖是：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-lang3<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.12.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="字符串判空"><a href="#字符串判空" class="headerlink" title="字符串判空"></a>字符串判空</h3><p>传参CharSequence类型是String、StringBuilder、StringBuffer的父类，都可以直接下面方法判空，以下是源码：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">(<span class="keyword">final</span> CharSequence cs)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> cs == <span class="keyword">null</span> || cs.length() == <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNotEmpty</span><span class="params">(<span class="keyword">final</span> CharSequence cs)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> !isEmpty(cs);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// 判空的时候，会去除字符串中的空白字符，比如空格、换行、制表符  </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isBlank</span><span class="params">(<span class="keyword">final</span> CharSequence cs)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> strLen = length(cs);  </span><br><span class="line">    <span class="keyword">if</span> (strLen == <span class="number">0</span>) &#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strLen; i++) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (!Character.isWhitespace(cs.charAt(i))) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNotBlank</span><span class="params">(<span class="keyword">final</span> CharSequence cs)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> !isBlank(cs);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="首字母转成大写"><a href="#首字母转成大写" class="headerlink" title="首字母转成大写"></a>首字母转成大写</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">String str = <span class="string">&quot;yideng&quot;</span>;  </span><br><span class="line">String capitalize = StringUtils.capitalize(str);  </span><br><span class="line">System.out.println(capitalize); <span class="comment">// 输出Yideng  </span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="重复拼接字符串"><a href="#重复拼接字符串" class="headerlink" title="重复拼接字符串"></a>重复拼接字符串</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">String str = StringUtils.repeat(<span class="string">&quot;ab&quot;</span>, <span class="number">2</span>);  </span><br><span class="line">System.out.println(str); <span class="comment">// 输出abab  </span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="格式化日期"><a href="#格式化日期" class="headerlink" title="格式化日期"></a>格式化日期</h3><p>再也不用手写SimpleDateFormat格式化了</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Date类型转String类型  </span></span><br><span class="line">String date = DateFormatUtils.format(<span class="keyword">new</span> Date(), <span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);  </span><br><span class="line">System.out.println(date); <span class="comment">// 输出 2021-05-01 01:01:01  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">// String类型转Date类型  </span></span><br><span class="line">Date date = DateUtils.parseDate(<span class="string">&quot;2021-05-01 01:01:01&quot;</span>, <span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// 计算一个小时后的日期  </span></span><br><span class="line">Date date = DateUtils.addHours(<span class="keyword">new</span> Date(), <span class="number">1</span>);  </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="包装临时对象"><a href="#包装临时对象" class="headerlink" title="包装临时对象"></a>包装临时对象</h3><p>当一个方法需要返回两个及以上字段时，我们一般会封装成一个临时对象返回，现在有了Pair和Triple就不需要了</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回两个字段  </span></span><br><span class="line">ImmutablePair&lt;Integer, String&gt; pair = ImmutablePair.of(<span class="number">1</span>, <span class="string">&quot;yideng&quot;</span>);  </span><br><span class="line">System.out.println(pair.getLeft() + <span class="string">&quot;,&quot;</span> + pair.getRight()); <span class="comment">// 输出 1,yideng  </span></span><br><span class="line"><span class="comment">// 返回三个字段  </span></span><br><span class="line">ImmutableTriple&lt;Integer, String, Date&gt; triple = ImmutableTriple.of(<span class="number">1</span>, <span class="string">&quot;yideng&quot;</span>, <span class="keyword">new</span> Date());  </span><br><span class="line">System.out.println(triple.getLeft() + <span class="string">&quot;,&quot;</span> + triple.getMiddle() + <span class="string">&quot;,&quot;</span> + triple.getRight()); <span class="comment">// 输出 1,yideng,Wed Apr 07 23:30:00 CST </span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="commons-collections-集合工具类"><a href="#commons-collections-集合工具类" class="headerlink" title="commons-collections 集合工具类"></a>commons-collections 集合工具类</h2><p>Maven依赖是：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-collections4<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="集合判空"><a href="#集合判空" class="headerlink" title="集合判空"></a>集合判空</h3><p>封装了集合判空的方法，以下是源码：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">(<span class="keyword">final</span> Collection&lt;?&gt; coll)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> coll == <span class="keyword">null</span> || coll.isEmpty();  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNotEmpty</span><span class="params">(<span class="keyword">final</span> Collection&lt;?&gt; coll)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> !isEmpty(coll);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">// 两个集合取交集  </span></span><br><span class="line">Collection&lt;String&gt; collection = CollectionUtils.retainAll(listA, listB);  </span><br><span class="line"><span class="comment">// 两个集合取并集  </span></span><br><span class="line">Collection&lt;String&gt; collection = CollectionUtils.union(listA, listB);  </span><br><span class="line"><span class="comment">// 两个集合取差集  </span></span><br><span class="line">Collection&lt;String&gt; collection = CollectionUtils.subtract(listA, listB); </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="common-beanutils-操作对象"><a href="#common-beanutils-操作对象" class="headerlink" title="common-beanutils 操作对象"></a>common-beanutils 操作对象</h2><p>Maven依赖：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-beanutils<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-beanutils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.9.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">public class User &#123;  </span><br><span class="line">    private Integer id;  </span><br><span class="line">    private String name;  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="设置对象属性"><a href="#设置对象属性" class="headerlink" title="设置对象属性"></a>设置对象属性</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">User user = <span class="keyword">new</span> User();  </span><br><span class="line">BeanUtils.setProperty(user, <span class="string">&quot;id&quot;</span>, <span class="number">1</span>);  </span><br><span class="line">BeanUtils.setProperty(user, <span class="string">&quot;name&quot;</span>, <span class="string">&quot;yideng&quot;</span>);  </span><br><span class="line">System.out.println(BeanUtils.getProperty(user, <span class="string">&quot;name&quot;</span>)); <span class="comment">// 输出 yideng  </span></span><br><span class="line">System.out.println(user); <span class="comment">// 输出 &#123;&quot;id&quot;:1,&quot;name&quot;:&quot;yideng&quot;&#125;  </span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="对象和map互转"><a href="#对象和map互转" class="headerlink" title="对象和map互转"></a>对象和map互转</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象转map  </span></span><br><span class="line">Map&lt;String, String&gt; map = BeanUtils.describe(user);  </span><br><span class="line">System.out.println(map); <span class="comment">// 输出 &#123;&quot;id&quot;:&quot;1&quot;,&quot;name&quot;:&quot;yideng&quot;&#125;  </span></span><br><span class="line"><span class="comment">// map转对象  </span></span><br><span class="line">User newUser = <span class="keyword">new</span> User();  </span><br><span class="line">BeanUtils.populate(newUser, map);  </span><br><span class="line">System.out.println(newUser); <span class="comment">// 输出 &#123;&quot;id&quot;:1,&quot;name&quot;:&quot;yideng&quot;&#125;  </span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="commons-io-文件流处理"><a href="#commons-io-文件流处理" class="headerlink" title="commons-io 文件流处理"></a>commons-io 文件流处理</h2><p>Maven依赖：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br></pre></td></tr></table></figure></div>
+
+<h3 id="文件处理"><a href="#文件处理" class="headerlink" title="文件处理"></a>文件处理</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;demo1.txt&quot;</span>);  </span><br><span class="line"><span class="comment">// 读取文件  </span></span><br><span class="line">List&lt;String&gt; lines = FileUtils.readLines(file, Charset.defaultCharset());  </span><br><span class="line"><span class="comment">// 写入文件  </span></span><br><span class="line">FileUtils.writeLines(<span class="keyword">new</span> File(<span class="string">&quot;demo2.txt&quot;</span>), lines);  </span><br><span class="line"><span class="comment">// 复制文件  </span></span><br><span class="line">FileUtils.copyFile(srcFile, destFile);  </span><br></pre></td></tr></table></figure></div>
+
+<h1 id="Google-Guava-工具类库"><a href="#Google-Guava-工具类库" class="headerlink" title="Google Guava 工具类库"></a>Google Guava 工具类库</h1><p>Maven依赖：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="XML"><figure class="iseeu highlight /xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>30.1.1-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; list = Lists.newArrayList();  </span><br><span class="line">List&lt;Integer&gt; list = Lists.newArrayList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);  </span><br><span class="line"><span class="comment">// 反转list  </span></span><br><span class="line">List&lt;Integer&gt; reverse = Lists.reverse(list);  </span><br><span class="line">System.out.println(reverse); <span class="comment">// 输出 [3, 2, 1]  </span></span><br><span class="line"><span class="comment">// list集合元素太多，可以分成若干个集合，每个集合10个元素  </span></span><br><span class="line">List&lt;List&lt;Integer&gt;&gt; partition = Lists.partition(list, <span class="number">10</span>);  </span><br><span class="line">  </span><br><span class="line">Map&lt;String, String&gt; map = Maps.newHashMap();  </span><br><span class="line">Set&lt;String&gt; set = Sets.newHashSet();  </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="黑科技集合"><a href="#黑科技集合" class="headerlink" title="黑科技集合"></a>黑科技集合</h2><h3 id="Multimap-一个key可以映射多个value的HashMap"><a href="#Multimap-一个key可以映射多个value的HashMap" class="headerlink" title="Multimap 一个key可以映射多个value的HashMap"></a>Multimap 一个key可以映射多个value的HashMap</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">Multimap&lt;String, Integer&gt; map = ArrayListMultimap.create();  </span><br><span class="line">map.put(<span class="string">&quot;key&quot;</span>, <span class="number">1</span>);  </span><br><span class="line">map.put(<span class="string">&quot;key&quot;</span>, <span class="number">2</span>);  </span><br><span class="line">Collection&lt;Integer&gt; values = map.get(<span class="string">&quot;key&quot;</span>);  </span><br><span class="line">System.out.println(map); <span class="comment">// 输出 &#123;&quot;key&quot;:[1,2]&#125;  </span></span><br><span class="line"><span class="comment">// 还能返回你以前使用的臃肿的Map  </span></span><br><span class="line">Map&lt;String, Collection&lt;Integer&gt;&gt; collectionMap = map.asMap();  </span><br></pre></td></tr></table></figure></div>
+
+<p>无需Map&lt;String, List&gt;这样创建</p>
+<h3 id="BiMap-一种连value也不能重复的HashMap"><a href="#BiMap-一种连value也不能重复的HashMap" class="headerlink" title="BiMap 一种连value也不能重复的HashMap"></a>BiMap 一种连value也不能重复的HashMap</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">BiMap&lt;String, String&gt; biMap = HashBiMap.create();  </span><br><span class="line"><span class="comment">// 如果value重复，put方法会抛异常，除非用forcePut方法  </span></span><br><span class="line">biMap.put(<span class="string">&quot;key&quot;</span>,<span class="string">&quot;value&quot;</span>);  </span><br><span class="line">System.out.println(biMap); <span class="comment">// 输出 &#123;&quot;key&quot;:&quot;value&quot;&#125;  </span></span><br><span class="line"><span class="comment">// 既然value不能重复，何不实现个翻转key/value的方法，已经有了  </span></span><br><span class="line">BiMap&lt;String, String&gt; inverse = biMap.inverse();  </span><br><span class="line">System.out.println(inverse); <span class="comment">// 输出 &#123;&quot;value&quot;:&quot;key&quot;&#125;  </span></span><br></pre></td></tr></table></figure></div>
+
+<p>这其实是双向映射，在某些场景还是很实用的。</p>
+<h3 id="Table-一种有两个key的HashMap"><a href="#Table-一种有两个key的HashMap" class="headerlink" title="Table 一种有两个key的HashMap"></a>Table 一种有两个key的HashMap</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一批用户，同时按年龄和性别分组  </span></span><br><span class="line">Table&lt;Integer, String, String&gt; table = HashBasedTable.create();  </span><br><span class="line">table.put(<span class="number">18</span>, <span class="string">&quot;男&quot;</span>, <span class="string">&quot;yideng&quot;</span>);  </span><br><span class="line">table.put(<span class="number">18</span>, <span class="string">&quot;女&quot;</span>, <span class="string">&quot;Lily&quot;</span>);  </span><br><span class="line">System.out.println(table.get(<span class="number">18</span>, <span class="string">&quot;男&quot;</span>)); <span class="comment">// 输出 yideng  </span></span><br><span class="line"><span class="comment">// 这其实是一个二维的Map，可以查看行数据  </span></span><br><span class="line">Map&lt;String, String&gt; row = table.row(<span class="number">18</span>);  </span><br><span class="line">System.out.println(row); <span class="comment">// 输出 &#123;&quot;男&quot;:&quot;yideng&quot;,&quot;女&quot;:&quot;Lily&quot;&#125;  </span></span><br><span class="line"><span class="comment">// 查看列数据  </span></span><br><span class="line">Map&lt;Integer, String&gt; column = table.column(<span class="string">&quot;男&quot;</span>);  </span><br><span class="line">System.out.println(column); <span class="comment">// 输出 &#123;18:&quot;yideng&quot;&#125;  </span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Multiset-一种用来计数的Set"><a href="#Multiset-一种用来计数的Set" class="headerlink" title="Multiset 一种用来计数的Set"></a>Multiset 一种用来计数的Set</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">Multiset&lt;String&gt; multiset = HashMultiset.create();  </span><br><span class="line">multiset.add(<span class="string">&quot;apple&quot;</span>);  </span><br><span class="line">multiset.add(<span class="string">&quot;apple&quot;</span>);  </span><br><span class="line">multiset.add(<span class="string">&quot;orange&quot;</span>);  </span><br><span class="line">System.out.println(multiset.count(<span class="string">&quot;apple&quot;</span>)); <span class="comment">// 输出 2  </span></span><br><span class="line"><span class="comment">// 查看去重的元素  </span></span><br><span class="line">Set&lt;String&gt; set = multiset.elementSet();  </span><br><span class="line">System.out.println(set); <span class="comment">// 输出 [&quot;orange&quot;,&quot;apple&quot;]  </span></span><br><span class="line"><span class="comment">// 还能查看没有去重的元素  </span></span><br><span class="line">Iterator&lt;String&gt; iterator = multiset.iterator();  </span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;  </span><br><span class="line">    System.out.println(iterator.next());  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">// 还能手动设置某个元素出现的次数  </span></span><br><span class="line">multiset.setCount(<span class="string">&quot;apple&quot;</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Java Utils</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合思维导图</title>
+    <url>/2021/06/06/3e41739a4386/</url>
+    <content><![CDATA[<blockquote>
+<p>一张图介绍Java不同集合之间的区别，自己画的，可能有不妥之处，望海涵！</p>
+</blockquote>
+<span id="more"></span>
+
+<p><img src="https://img.api.liujinshui.com/javaset.png" alt="Java集合思维导图"></p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Layui解决点击input框时间选择框闪退的问题</title>
+    <url>/2021/06/21/d54f6e5dbd18/</url>
+    <content><![CDATA[<blockquote>
+<p>经查看发现实际上是时间弹窗自身计算了当前浏览器的可用高度，当高度不足以显示时间选择框时，则会自动偏移，导致鼠标可以点击到时间选择框，从而导致input框失去焦点、时间选择框隐藏。结合layui官方文档最终解决；</p>
+</blockquote>
+<span id="more"></span>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">layui.use(<span class="string">&#x27;laydate&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> laydate = layui.laydate;</span><br><span class="line">  <span class="comment">//执行一个laydate实例</span></span><br><span class="line">  laydate.render(&#123;</span><br><span class="line">    <span class="attr">elem</span>: <span class="string">&#x27;#createTime&#x27;</span>,</span><br><span class="line">    <span class="attr">trigger</span>: <span class="string">&#x27;click&#x27;</span> <span class="comment">//添加这一行来处理</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>以下为部分源码</p>
+<p><img src="https://img.api.liujinshui.com/5793041-a9dea3c8ce40764b.jpg" alt="源码"></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Layui</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux tail 命令</title>
+    <url>/2021/06/07/9e31257b4c50/</url>
+    <content><![CDATA[<blockquote>
+<p> 全文引用：<a href="https://www.runoob.com/linux/linux-comm-tail.html">runoob</a></p>
+<p>仅增加查看tomcat运行日志命令，剩余全文与引用一致</p>
+</blockquote>
+<span id="more"></span>
+
+<p><code>tail</code> 命令可用于查看文件的内容，有一个常用的参数 <code>-f </code>常用于查阅正在改变的日志文件。</p>
+<p><code>tail -f filename</code> 会把 filename 文件里的最尾部的内容显示在屏幕上，并且不断刷新，只要 filename 更新就可以看到最新的文件内容。</p>
+<p>tomcat下查看日志：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment">#tomcat logs目录下</span></span><br><span class="line"><span class="attribute">tail</span> -f catalina.out</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p><strong>命令格式：</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tail</span> [参数] [文件]  </span><br></pre></td></tr></table></figure></div>
+
+<p><strong>参数：</strong></p>
+<ul>
+<li>-f 循环读取</li>
+<li>-q 不显示处理信息</li>
+<li>-v 显示详细的处理信息</li>
+<li>-c&lt;数目&gt; 显示的字节数</li>
+<li>-n&lt;行数&gt; 显示文件的尾部 n 行内容</li>
+<li>–pid=PID 与-f合用,表示在进程ID,PID死掉之后结束</li>
+<li>-q, –quiet, –silent 从不输出给出文件名的首部</li>
+<li>-s, –sleep-interval=S 与-f合用,表示在每次反复的间隔休眠S秒</li>
+</ul>
+<p><strong>实例</strong></p>
+<p>要显示 notes.log 文件的最后 10 行，请输入以下命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tail</span> notes.log         <span class="comment"># 默认显示最后 10 行</span></span><br></pre></td></tr></table></figure></div>
+
+<p>要跟踪名为 notes.log 的文件的增长情况，请输入以下命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tail</span> -f notes.log</span><br></pre></td></tr></table></figure></div>
+
+<p>此命令显示 notes.log 文件的最后 10 行。当将某些行添加至 notes.log 文件时，tail 命令会继续显示这些行。 显示一直继续，直到您按下（Ctrl-C）组合键停止显示。</p>
+<p>显示文件 notes.log 的内容，从第 20 行至文件末尾:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tail</span> -n +<span class="number">20</span> notes.log</span><br></pre></td></tr></table></figure></div>
+
+<p>显示文件 notes.log 的最后 10 个字符:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="NGINX"><figure class="iseeu highlight /nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tail</span> -c <span class="number">10</span> notes.log</span><br></pre></td></tr></table></figure></div>
+]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Centos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MD5算法详解</title>
+    <url>/2021/06/07/7ecf293be481/</url>
+    <content><![CDATA[<blockquote>
+<p>引用：<a href="https://www.cnblogs.com/JulianHuang/p/14858339.html#%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95">.NET云原生</a></p>
+<p>去掉敏感字眼，其他内容与引用一致，供个人学习！</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<p>MD5不是加密算法，是摘要算法。</p>
+<p>加密算法、摘要算法的定义和场景：<br><img src="https://img.api.liujinshui.com/e90b3312-121d-4654-9a7f-9db4269af3d6.png"></p>
+<p>加密算法的目的，在于使别人无法成功查看加密的数据，并且在需要的时候还可以对数据进行解密来重新查看数据。</p>
+<p>而MD5算法是一种哈希算法，哈希算法的设计目的本身就决定了，它在大多数情况下都是不可逆的，即你通过哈希算法得到的数据，无法经过任何算法还原回去。 所以既然不能将数据还原，也就不能称之为解密；既然不能解密，那么哈希的过程自然也就不能称作是[加密]了。</p>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p><strong>加密</strong>： 是以某种特殊的算法改变原有的信息，使得未授权的用户即使获得已加密的信息，但因不知解密的方法，仍然无法了解信息的内容。</p>
+<p><strong>解密</strong>：加密的逆过程为解密，即将该加密信息转化为其原来信息的过程。</p>
+<p>加密算法分为对称加密和非对称加密，其中对称加密算法的加解密密钥相同，非对称加解密的密钥不同。</p>
+<p><img src="https://img.api.liujinshui.com/03cecdbf-3e8b-4427-804a-6e2100c7b10b.png"></p>
+<blockquote>
+<p>HTTPS就同时用到非对称加密和对称加密，在连接建立的阶段，使用非对称加解密(传输密钥)， 在通信阶段使用对称密钥加解密数据。</p>
+</blockquote>
+<p><img src="https://img.api.liujinshui.com/20896856-48d4-4771-9701-eecdcafb7c35.png"></p>
+<h2 id="摘要算法"><a href="#摘要算法" class="headerlink" title="摘要算法"></a>摘要算法</h2><p>摘要算法，又称哈希算法、散列算法。通过一个函数，将任意长度的内容转换为一个固定长度的数据串。</p>
+<p><img src="https://img.api.liujinshui.com/08114dbc-c995-4e18-bfa6-2cfe3e65cde8.png"></p>
+<p>摘要算法之所以能指出数据是否被篡改，就是因为摘要函数是一个单向函数，计算很容易，但通过摘要(digest) 反推data却非常困难，而且，对于原始数据做一个bit的修改，都会导致计算出的摘要完全不同。</p>
+<blockquote>
+<p>使用迅雷下载某片的时候，下载站会顺带给你一个MD5校验码；<br>你找一个MD5校验工具，对下载下来的文件执行MD5算法，将得到的哈希值与下载站附带的MD5值对比，如果值是相同的，说明从该网站下载的文件没有损坏。</p>
+</blockquote>
+<h3 id="HMAC"><a href="#HMAC" class="headerlink" title="HMAC"></a>HMAC</h3><p>延伸聊一个结合了密钥和哈希功能的请求认证方案：<br>HMAC ( hash-based message authenticated code)</p>
+<p>很多第三方平台都采用这种授权认证方案，你回想一下，api平台是不是经常给你一对<code>AppID</code> <code>Serect Key</code></p>
+<ol>
+<li>Client &amp; Server 都知晓一个私钥<code>serect key</code></li>
+<li>客户端每次请求时，会针对(请求数据+ secret key)生成一个hash值<br><code>HMAC = hashFunc(secret key + message)</code></li>
+<li>客户端将哈希值做为请求的一部分，一起发送</li>
+<li>当服务端收到请求， 对( 收到的请求+ 查到的<code>Serectkey&#39;</code>)生成哈希，将计算的哈希值与请求中附带的原哈希值对比，如果相同，则认定请求来自受信Client，且请求未被篡改。</li>
+</ol>
+<p>为什么会有这样的效果？</p>
+<p>首先：Client 和Server的哈希值相同，根据哈希算法的设计初衷，说明请求过程未被篡改；</p>
+<p>另一方面也反推 Client 和Server使用了相同的<code>Serect Key</code> , 而<code>Serect Key</code>是私密信息，故此处的Client不可抵赖。</p>
+<blockquote>
+<p>还可以考虑在客户端生成哈希时加入timestamp时间戳（请求还要附带这个时间戳），服务端收到后先对比服务器时间戳与请求时间戳，限制15s内为有效请求，再对（请求信息+ 时间戳+ serectkey)哈希对比，避免重放攻击。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文给出的示例： HTTPS、迅雷MD5校验，足够帮助你了解加密算法和摘要算法的设计目的。</p>
+<ul>
+<li>加密算法的目的是： 防止信息被偷看</li>
+<li>摘要算法的目的是： 防止信息被篡改</li>
+</ul>
+<p>以后使用时候也能有的放矢，面试时也不会闹出笑话。</p>
+<p>最后给出的WebAPI授权方案<code>HMAC</code>，算是密钥+哈希算法结合的一个应用场景， 具备快速、自签名的特点。</p>
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>MD5</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MyBatisPlus分页</title>
+    <url>/2021/06/05/5c26ee3d06e7/</url>
+    <content><![CDATA[<blockquote>
+<p>MybatisPlus的IPage分页插件的使用流程，代码示例Controller，Server，ServerImpl，Mapper，Vo，Config</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="一、创建配置类"><a href="#一、创建配置类" class="headerlink" title="一、创建配置类"></a>一、创建配置类</h1><p>首先创建配置类，注入分页插件。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span><span class="comment">//标记该类是一个配置类</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span><span class="comment">//开启事务管理</span></span><br><span class="line"><span class="meta">@MapperScan(basePackages = &#123;&quot;com.liujinshui.demo.dao&quot;&#125;)</span><span class="comment">//加载mapper接口所在的包</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBatisPlusConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注入分页插件</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PaginationInterceptor <span class="title">paginationInterceptor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PaginationInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="二、Dao层"><a href="#二、Dao层" class="headerlink" title="二、Dao层"></a>二、Dao层</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> <span class="keyword">extends</span> <span class="title">BaseMapper</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Select(&quot;select 字段名 from user where userName = #&#123;user.userName&#125;&quot;)</span></span><br><span class="line">    <span class="function">IPage&lt;User&gt; <span class="title">getAllUser</span><span class="params">(<span class="meta">@Param(&quot;page&quot;)</span> IPage&lt;User&gt; page, <span class="meta">@Param(&quot;user&quot;)</span> UserVo userVo)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="三、Service层"><a href="#三、Service层" class="headerlink" title="三、Service层"></a>三、Service层</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> </span>&#123; </span><br><span class="line">    <span class="function">IPage&lt;User&gt; <span class="title">getAllUser</span><span class="params">(IPage&lt;User&gt; page, UserVo userVo)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="四、ServiceImpl层"><a href="#四、ServiceImpl层" class="headerlink" title="四、ServiceImpl层"></a>四、ServiceImpl层</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="title">implement</span> <span class="title">UserService</span></span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IPage&lt;User&gt; <span class="title">getAllUser</span><span class="params">(IPage&lt;User&gt; page, UserVo userVo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userMapper.getAllUser(page, userVo);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="五、Vo层"><a href="#五、Vo层" class="headerlink" title="五、Vo层"></a>五、Vo层</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserVo</span> <span class="keyword">extends</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer page;<span class="comment">//当前页码</span></span><br><span class="line">    <span class="keyword">private</span> Integer limit;<span class="comment">//每页显示数量</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getPage</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> page; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPage</span><span class="params">(Integer page)</span> </span>&#123; <span class="keyword">this</span>.page = page; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getLimit</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> limit; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLimit</span><span class="params">(Integer limit)</span> </span>&#123; <span class="keyword">this</span>.limit = limit; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="六、Controller层"><a href="#六、Controller层" class="headerlink" title="六、Controller层"></a>六、Controller层</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/sys&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping(&quot;/getAllUser&quot;)</span></span><br><span class="line">    <span class="meta">@ResponeBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> JSONResult <span class="title">getAllUser</span><span class="params">(UserVo userVo)</span> </span>&#123;</span><br><span class="line">        IPage&lt;User&gt; page = <span class="keyword">new</span> Page&lt;&gt;(userVo.getPage(), userVo.getLimit());</span><br><span class="line">        IPage&lt;User&gt; pageUser = userService.getAllUser(page, userVo);</span><br><span class="line">        <span class="comment">//向前端传入count, data</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JSONResult(pageUser.getTotal(), pageUser.getRecords());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+]]></content>
+      <categories>
+        <category>高级框架</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>MyBatisPlus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL清华镜像</title>
+    <url>/2021/06/06/e0f70f6cb154/</url>
+    <content><![CDATA[<blockquote>
+<p>清华镜像地址:<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads">点击跳转</a></p>
+</blockquote>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL针对数字顺序进行排序-自定义排序</title>
+    <url>/2021/06/05/431df01fe42b/</url>
+    <content><![CDATA[<blockquote>
+<p>本文引用：<a href="https://blog.csdn.net/zz630586802/article/details/101672301">deepactor</a></p>
+<p>原理与引用一致，仅说明不同。</p>
+</blockquote>
+<span id="more"></span>     
+
+<p>在<code>mysql</code>数据库中，我们可能存在以下业务情况</p>
+<p>有：1,2,3,4,5,6,7,8 个数字，分别对应8个状态，而我们可能以其中的某个数字开始进行排序，例如：6,7,8,1,2,3,4,5这样的排序，普通的 <code>order by</code> 就无法实现这样的需求。这时需要这样写：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    字段名</span><br><span class="line"> <span class="keyword">FROM</span> </span><br><span class="line">    表名</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">    field(列名，顺序<span class="number">1</span>，顺序<span class="number">2</span>，顺序<span class="number">3</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p><img src="https://img.api.liujinshui.com/1622110485529-62666e13-f569-4d6f-99c1-5c2986e4af7e.png" alt="排序结果"></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>自定义排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis 服务端配置——Could not connect to Redis at 127.0.0.1:6379: Connection refused</title>
+    <url>/2021/06/24/0c115f76bd22/</url>
+    <content><![CDATA[<blockquote>
+<p>使用redis-cli命令打开redis时报错：Could not connect to Redis at 127.0.0.1:6379: Connection refused’的解决办法</p>
+</blockquote>
+<span id="more"></span>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="code"><pre><span class="line">[root@rainoprime 桌面]<span class="comment"># redis-cli</span></span><br><span class="line">Could not connect to Redis at 127.0.0.1:6379: Connection refused</span><br><span class="line">Could not connect to Redis at 127.0.0.1:6379: Connection refused</span><br><span class="line">not connected&gt; <span class="built_in">exit</span></span><br><span class="line">[root@rainoprime 桌面]<span class="comment"># redis-server /etc/redis.conf</span></span><br><span class="line">[root@rainoprime 桌面]<span class="comment"># redis-cli</span></span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>在使用Redis时，开始就遇到了问题，客户端打不开，原因是需要先开启服务端，这需要先配置——</p>
+<blockquote>
+<p>如果采用 yum install redis 安装的，则使用 whereis redis 查找redis.conf的位置。</p>
+</blockquote>
+<ol>
+<li>下载好redis安装包，解压安装之后，复制其配置文件redis.conf 到etc 文件夹下</li>
+</ol>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="code"><pre><span class="line">[root@rainoprime 桌面]<span class="comment"># cd /opt/redis-3.2.8</span></span><br><span class="line"></span><br><span class="line">[root@rainoprime 桌面]<span class="comment"># cp redis.conf /etc</span></span><br></pre></td></tr></table></figure></div>
+
+<p>　　</p>
+<ol start="2">
+<li><p>进入etc，找到redis.conf 并修改 daemonize no（第128行） 为 daemonize <strong>yes</strong> ，这样就可以默认启动就后台运行</p>
+</li>
+<li><p>开启客户端要确保服务端启动    </p>
+</li>
+</ol>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="code"><pre><span class="line">redis-server /etc/redis.conf</span><br></pre></td></tr></table></figure></div>
+
+<ol start="4">
+<li>启动客户端不成功要退出再进行下一步</li>
+</ol>
+<p><img src="https://img.api.liujinshui.com/1001990-20170520090611510-894891106.png" alt="示例"></p>
+]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cookie、session、token的区别</title>
+    <url>/2021/08/16/91849c6c0cfe/</url>
+    <content><![CDATA[<blockquote>
+<p>引用：<a href="https://www.cnblogs.com/moyand/p/9047978.html">墨颜、</a></p>
+<p>本文全文引用上述链接，供个人记录学习！</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="发展史"><a href="#发展史" class="headerlink" title="发展史"></a>发展史</h1><p>1、很久很久以前，Web 基本上就是文档的浏览而已， 既然是浏览，作为服务器， 不需要记录谁在某一段时间里都浏览了什么文档，每次请求都是一个新的HTTP协议， 就是请求加响应，  尤其是我不用记住是谁刚刚发了HTTP请求，  每个请求对我来说都是全新的。这段时间很嗨皮</p>
+<p>2、但是随着交互式Web应用的兴起，像在线购物网站，需要登录的网站等等，马上就面临一个问题，那就是要管理会话，必须记住哪些人登录系统，  哪些人往自己的购物车中放商品，  也就是说我必须把每个人区分开，这就是一个不小的挑战，因为HTTP请求是无状态的，所以想出的办法就是给大家发一个会话标识(session id), 说白了就是一个随机的字串，每个人收到的都不一样，  每次大家向我发起HTTP请求的时候，把这个字符串给一并捎过来， 这样我就能区分开谁是谁了</p>
+<p>3、这样大家很嗨皮了，可是服务器就不嗨皮了，每个人只需要保存自己的session id，而服务器要保存所有人的session id ！  如果访问服务器多了， 就得由成千上万，甚至几十万个。</p>
+<p>这对服务器说是一个巨大的开销 ， 严重的限制了服务器扩展能力， 比如说我用两个机器组成了一个集群， 小F通过机器A登录了系统，  那session id会保存在机器A上，  假设小F的下一次请求被转发到机器B怎么办？  机器B可没有小F的 session id啊。</p>
+<p>有时候会采用一点小伎俩： session sticky ， 就是让小F的请求一直粘连在机器A上， 但是这也不管用， 要是机器A挂掉了， 还得转到机器B去。</p>
+<p>那只好做session 的复制了， 把session id  在两个机器之间搬来搬去， 快累死了。</p>
+<p>　　　　　　<img src="https://img.api.liujinshui.com/1350514-20180504122814029-1201707523.png" alt="图一"></p>
+<p>后来有个叫Memcached的支了招： 把session id 集中存储到一个地方， 所有的机器都来访问这个地方的数据， 这样一来，就不用复制了， 但是增加了单点失败的可能性， 要是那个负责session 的机器挂了，  所有人都得重新登录一遍， 估计得被人骂死。</p>
+<p>　　　　　　 <img src="https://img.api.liujinshui.com/1350514-20180504123036062-1920411426.png" alt="图二"></p>
+<p>也尝试把这个单点的机器也搞出集群，增加可靠性， 但不管如何， 这小小的session 对我来说是一个沉重的负担</p>
+<p>4 于是有人就一直在思考， 我为什么要保存这可恶的session呢， 只让每个客户端去保存该多好？</p>
+<p>可是如果不保存这些session id , 怎么验证客户端发给我的session id 的确是我生成的呢？  如果不去验证，我们都不知道他们是不是合法登录的用户， 那些不怀好意的家伙们就可以伪造session id , 为所欲为了。</p>
+<p>嗯，对了，关键点就是验证 ！</p>
+<p>比如说， 小F已经登录了系统， 我给他发一个令牌(token)， 里边包含了小F的 user id， 下一次小F 再次通过Http 请求访问我的时候， 把这个token 通过Http header 带过来不就可以了。</p>
+<p>不过这和session id没有本质区别啊， 任何人都可以可以伪造，  所以我得想点儿办法， 让别人伪造不了。</p>
+<p>那就对数据做一个签名吧， 比如说我用HMAC-SHA256 算法，加上一个只有我才知道的密钥，  对数据做一个签名， 把这个签名和数据一起作为token ，  由于密钥别人不知道， 就无法伪造token了。</p>
+<p><img src="https://img.api.liujinshui.com/1350514-20180504123206667-444188772.png" alt="图三"></p>
+<p>这个token 我不保存，  当小F把这个token 给我发过来的时候，我再用同样的HMAC-SHA256 算法和同样的密钥，对数据再计算一次签名， 和token 中的签名做个比较， 如果相同， 我就知道小F已经登录过了，并且可以直接取到小F的user id ,  如果不相同， 数据部分肯定被人篡改过， 我就告诉发送者： 对不起，没有认证。</p>
+<p><img src="https://img.api.liujinshui.com/1350514-20180504123326596-1492094512.png" alt="图四"></p>
+<p>Token 中的数据是明文保存的（虽然我会用Base64做下编码， 但那不是加密）， 还是可以被别人看到的， 所以我不能在其中保存像密码这样的敏感信息。</p>
+<p>当然， 如果一个人的token 被别人偷走了， 那我也没办法， 我也会认为小偷就是合法用户， 这其实和一个人的session id 被别人偷走是一样的。</p>
+<p>这样一来， 我就不保存session id 了， 我只是生成token , 然后验证token ，  我用我的CPU计算时间获取了我的session 存储空间 ！</p>
+<p>解除了session id这个负担，  可以说是无事一身轻， 我的机器集群现在可以轻松地做水平扩展， 用户访问量增大， 直接加机器就行。  这种无状态的感觉实在是太好了！</p>
+<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><p>cookie 是一个非常具体的东西，指的就是浏览器里面能永久存储的一种数据，仅仅是浏览器实现的一种数据存储功能。</p>
+<p>cookie由服务器生成，发送给浏览器，浏览器把cookie以kv形式保存到某个目录下的文本文件内，下一次请求同一网站时会把该cookie发送给服务器。由于cookie是存在客户端上的，所以浏览器加入了一些限制确保cookie不会被恶意使用，同时不会占据太多磁盘空间，所以每个域的cookie数量是有限的。</p>
+<h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><p>session 从字面上讲，就是会话。这个就类似于你和一个人交谈，你怎么知道当前和你交谈的是张三而不是李四呢？对方肯定有某种特征（长相等）表明他就是张三。</p>
+<p>session 也是类似的道理，服务器要知道当前发请求给自己的是谁。为了做这种区分，服务器就要给每个客户端分配不同的“身份标识”，然后客户端每次向服务器发请求的时候，都带上这个“身份标识”，服务器就知道这个请求来自于谁了。至于客户端怎么保存这个“身份标识”，可以有很多种方式，对于浏览器客户端，大家都默认采用 cookie 的方式。</p>
+<p>服务器使用session把用户的信息临时保存在了服务器上，用户离开网站后session会被销毁。这种用户信息存储方式相对cookie来说更安全，可是session有一个缺陷：如果web服务器做了负载均衡，那么下一个操作请求到了另一台服务器的时候session会丢失。</p>
+<h1 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h1><p>在Web领域基于Token的身份验证随处可见。在大多数使用Web API的互联网公司中，tokens 是多用户下处理认证的最佳方式。</p>
+<p>以下几点特性会让你在程序中使用基于Token的身份验证</p>
+<p>1.无状态、可扩展</p>
+<p> 2.支持移动设备</p>
+<p> 3.跨程序调用</p>
+<p> 4.安全</p>
+<p>那些使用基于Token的身份验证的大佬们</p>
+<p>大部分你见到过的API和Web应用都使用tokens。例如Facebook, Twitter, Google+, GitHub等。</p>
+<p>Token的起源</p>
+<p>在介绍基于Token的身份验证的原理与优势之前，不妨先看看之前的认证都是怎么做的。</p>
+<p>　　基于服务器的验证</p>
+<p>　  我们都是知道HTTP协议是无状态的，这种无状态意味着程序需要验证每一次请求，从而辨别客户端的身份。</p>
+<p>在这之前，程序都是通过在服务端存储的登录信息来辨别请求的。这种方式一般都是通过存储Session来完成。</p>
+<p>下图展示了基于服务器验证的原理</p>
+<p>随着Web，应用程序，已经移动端的兴起，这种验证的方式逐渐暴露出了问题。尤其是在可扩展性方面。</p>
+<p>基于服务器验证方式暴露的一些问题</p>
+<p>1.Seesion：每次认证用户发起请求时，服务器需要去创建一个记录来存储信息。当越来越多的用户发请求时，内存的开销也会不断增加。</p>
+<p>2.可扩展性：在服务端的内存中使用Seesion存储登录信息，伴随而来的是可扩展性问题。</p>
+<p>3.CORS(跨域资源共享)：当我们需要让数据跨多台移动设备上使用时，跨域资源的共享会是一个让人头疼的问题。在使用Ajax抓取另一个域的资源，就可以会出现禁止请求的情况。</p>
+<p>4.CSRF(跨站请求伪造)：用户在访问银行网站时，他们很容易受到跨站请求伪造的攻击，并且能够被利用其访问其他的网站。</p>
+<p>在这些问题中，可扩展行是最突出的。因此我们有必要去寻求一种更有行之有效的方法。</p>
+<p>基于Token的验证原理</p>
+<p>基于Token的身份验证是无状态的，我们不将用户信息存在服务器或Session中。</p>
+<p>这种概念解决了在服务端存储信息时的许多问题</p>
+<p>　　NoSession意味着你的程序可以根据需要去增减机器，而不用去担心用户是否登录。</p>
+<p>基于Token的身份验证的过程如下:</p>
+<p>1.用户通过用户名和密码发送请求。</p>
+<p>2.程序验证。</p>
+<p>3.程序返回一个签名的token 给客户端。</p>
+<p>4.客户端储存token,并且每次用于每次发送请求。</p>
+<p>5.服务端验证token并返回数据。</p>
+<p> 每一次请求都需要token。token应该在HTTP的头部发送从而保证了Http请求无状态。我们同样通过设置服务器属性Access-Control-Allow-Origin:* ，让服务器能接受到来自所有域的请求。需要主要的是，在ACAO头部标明(designating)*时，不得带有像HTTP认证，客户端SSL证书和cookies的证书。</p>
+<p> 实现思路：</p>
+<p><img src="https://img.api.liujinshui.com/1350514-20180504123850641-479661599.png" alt="图五"></p>
+<p>1.用户登录校验，校验成功后就返回Token给客户端。</p>
+<p>2.客户端收到数据后保存在客户端</p>
+<p>3.客户端每次访问API是携带Token到服务器端。</p>
+<p>4.服务器端采用filter过滤器校验。校验成功则返回请求数据，校验失败则返回错误码</p>
+<p>当我们在程序中认证了信息并取得token之后，我们便能通过这个Token做许多的事情。</p>
+<p>我们甚至能基于创建一个基于权限的token传给第三方应用程序，这些第三方程序能够获取到我们的数据（当然只有在我们允许的特定的token）</p>
+<p>Tokens的优势</p>
+<p>无状态、可扩展</p>
+<p>在客户端存储的Tokens是无状态的，并且能够被扩展。基于这种无状态和不存储Session信息，负载负载均衡器能够将用户信息从一个服务传到其他服务器上。</p>
+<p>如果我们将已验证的用户的信息保存在Session中，则每次请求都需要用户向已验证的服务器发送验证信息(称为Session亲和性)。用户量大时，可能会造成</p>
+<p> 一些拥堵。</p>
+<p>但是不要着急。使用tokens之后这些问题都迎刃而解，因为tokens自己hold住了用户的验证信息。</p>
+<p>安全性</p>
+<p>请求中发送token而不再是发送cookie能够防止CSRF(跨站请求伪造)。即使在客户端使用cookie存储token，cookie也仅仅是一个存储机制而不是用于认证。不将信息存储在Session中，让我们少了对session操作。 </p>
+<p>token是有时效的，一段时间之后用户需要重新验证。我们也不一定需要等到token自动失效，token有撤回的操作，通过token revocataion可以使一个特定的token或是一组有相同认证的token无效。</p>
+<p>可扩展性（）</p>
+<p>Tokens能够创建与其它程序共享权限的程序。例如，能将一个随便的社交帐号和自己的大号(Fackbook或是Twitter)联系起来。当通过服务登录Twitter(我们将这个过程Buffer)时，我们可以将这些Buffer附到Twitter的数据流上(we are allowing Buffer to post to our Twitter stream)。</p>
+<p>使用tokens时，可以提供可选的权限给第三方应用程序。当用户想让另一个应用程序访问它们的数据，我们可以通过建立自己的API，得出特殊权限的tokens。</p>
+<p>多平台跨域</p>
+<p>我们提前先来谈论一下CORS(跨域资源共享)，对应用程序和服务进行扩展的时候，需要介入各种各种的设备和应用程序。</p>
+<p>Having our API just serve data, we can also make the design choice to serve assets from a CDN. This eliminates the issues that CORS brings up after we set a quick header configuration for our application.</p>
+<p>只要用户有一个通过了验证的token，数据和资源就能够在任何域上被请求到。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="code"><pre><span class="line">Access-Control-Allow-Origin: *       </span><br></pre></td></tr></table></figure></div>
+
+<p>基于标准</p>
+<p>创建token的时候，你可以设定一些选项。我们在后续的文章中会进行更加详尽的描述，但是标准的用法会在JSON Web Tokens体现。</p>
+<p>最近的程序和文档是供给JSON Web Tokens的。它支持众多的语言。这意味在未来的使用中你可以真正的转换你的认证机制。</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery Radio默认选中或清空</title>
+    <url>/2021/06/06/5f14d8a9dee3/</url>
+    <content><![CDATA[<blockquote>
+<p>使用环境：前端在使用Layui弹出层时单选按钮第一次可以自动选中，但是第二次第三次打开可能会存在无法选中的情况，本方法适用此情景</p>
+</blockquote>
+<span id="more"></span>
+
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#radio3&quot;</span>).attr(<span class="string">&quot;checked&quot;</span>,<span class="string">&quot;checked&quot;</span>)</span><br><span class="line"><span class="comment">//将attr换成</span></span><br><span class="line">$(<span class="string">&quot;#radio3&quot;</span>).prop(<span class="string">&quot;checked&quot;</span>,<span class="string">&quot;checked&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java.lang.IllegalStateException:由于StackOverflower错误</title>
+    <url>/2021/06/08/483730a0bb8d/</url>
+    <content><![CDATA[<blockquote>
+<p>最近在启动tomcat时候总会出现以下错误，时有时无，经查大概率是因为没有在Tomcat里面设置JAVA_OPTS的原因</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="STYLUS"><figure class="iseeu highlight /stylus"><table><tr><td class="code"><pre><span class="line"><span class="number">08</span>-Jun-<span class="number">2021</span> <span class="number">17</span>:<span class="number">45</span>:<span class="number">39.979</span> 严重 <span class="selector-attr">[localhost-startStop-1]</span> org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChildInternal</span> ContainerBase<span class="selector-class">.addChild</span>: start:</span><br><span class="line">        org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.LifecycleException</span>: 无法启动组件<span class="selector-attr">[StandardEngine[Catalina]</span><span class="selector-class">.StandardHost</span><span class="selector-attr">[localhost]</span><span class="selector-class">.StandardContext</span><span class="selector-attr">[]</span>]</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.util</span><span class="selector-class">.LifecycleBase</span><span class="selector-class">.handleSubClassException</span>(LifecycleBase<span class="selector-class">.java</span>:<span class="number">440</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.util</span><span class="selector-class">.LifecycleBase</span><span class="selector-class">.start</span>(LifecycleBase<span class="selector-class">.java</span>:<span class="number">198</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChildInternal</span>(ContainerBase<span class="selector-class">.java</span>:<span class="number">743</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChild</span>(ContainerBase<span class="selector-class">.java</span>:<span class="number">719</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.StandardHost</span><span class="selector-class">.addChild</span>(StandardHost<span class="selector-class">.java</span>:<span class="number">705</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.HostConfig</span><span class="selector-class">.deployWAR</span>(HostConfig<span class="selector-class">.java</span>:<span class="number">1015</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span>.HostConfig<span class="variable">$DeployWar</span><span class="selector-class">.run</span>(HostConfig<span class="selector-class">.java</span>:<span class="number">1895</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span>.Executors<span class="variable">$RunnableAdapter</span><span class="selector-class">.call</span>(Executors<span class="selector-class">.java</span>:<span class="number">511</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span><span class="selector-class">.FutureTask</span><span class="selector-class">.run</span>(FutureTask<span class="selector-class">.java</span>:<span class="number">266</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span><span class="selector-class">.ThreadPoolExecutor</span><span class="selector-class">.runWorker</span>(ThreadPoolExecutor<span class="selector-class">.java</span>:<span class="number">1149</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span>.ThreadPoolExecutor<span class="variable">$Worker</span><span class="selector-class">.run</span>(ThreadPoolExecutor<span class="selector-class">.java</span>:<span class="number">624</span>)</span><br><span class="line">                at java<span class="selector-class">.lang</span><span class="selector-class">.Thread</span><span class="selector-class">.run</span>(Thread<span class="selector-class">.java</span>:<span class="number">748</span>)</span><br><span class="line">        Caused by: java<span class="selector-class">.lang</span><span class="selector-class">.IllegalStateException</span>: 由于StackOverflower错误，无法完成对web应用程序<span class="selector-attr">[]</span>的批注的扫描。可能的根本原因包括-Xss的设置过低和非法的循环继承依赖项。正在处理的类层次结 构是<span class="selector-attr">[org.bouncycastle.asn1.ASN1Boolean-&gt;org.bouncycastle.asn1.DERBoolean-&gt;org.bouncycastle.asn1.ASN1Boolean]</span></span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.checkHandlesTypes</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">2071</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processAnnotationsStream</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">2009</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processAnnotationsJar</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1961</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processAnnotationsUrl</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1931</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processAnnotations</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1887</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.processClasses</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1186</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.webConfig</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">1093</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.configureStart</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">779</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.ContextConfig</span><span class="selector-class">.lifecycleEvent</span>(ContextConfig<span class="selector-class">.java</span>:<span class="number">299</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.util</span><span class="selector-class">.LifecycleBase</span><span class="selector-class">.fireLifecycleEvent</span>(LifecycleBase<span class="selector-class">.java</span>:<span class="number">123</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.StandardContext</span><span class="selector-class">.startInternal</span>(StandardContext<span class="selector-class">.java</span>:<span class="number">5069</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.util</span><span class="selector-class">.LifecycleBase</span><span class="selector-class">.start</span>(LifecycleBase<span class="selector-class">.java</span>:<span class="number">183</span>)</span><br><span class="line">                ... <span class="number">10</span> more</span><br><span class="line"><span class="number">08</span>-Jun-<span class="number">2021</span> <span class="number">17</span>:<span class="number">45</span>:<span class="number">39.981</span> 严重 <span class="selector-attr">[localhost-startStop-1]</span> org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.HostConfig</span><span class="selector-class">.deployWAR</span> 部署 Web 应用程序 archive <span class="selector-attr">[E:\tomcat\apache-tomcat-8.5.64\webapps\ROOT.war]</span> 时出错</span><br><span class="line">        java<span class="selector-class">.lang</span><span class="selector-class">.IllegalStateException</span>: ContainerBase<span class="selector-class">.addChild</span>: start: org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.LifecycleException</span>: 无法启动组件<span class="selector-attr">[StandardEngine[Catalina]</span><span class="selector-class">.StandardHost</span><span class="selector-attr">[localhost]</span><span class="selector-class">.StandardContext</span><span class="selector-attr">[]</span>]</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChildInternal</span>(ContainerBase<span class="selector-class">.java</span>:<span class="number">747</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.ContainerBase</span><span class="selector-class">.addChild</span>(ContainerBase<span class="selector-class">.java</span>:<span class="number">719</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.core</span><span class="selector-class">.StandardHost</span><span class="selector-class">.addChild</span>(StandardHost<span class="selector-class">.java</span>:<span class="number">705</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span><span class="selector-class">.HostConfig</span><span class="selector-class">.deployWAR</span>(HostConfig<span class="selector-class">.java</span>:<span class="number">1015</span>)</span><br><span class="line">                at org<span class="selector-class">.apache</span><span class="selector-class">.catalina</span><span class="selector-class">.startup</span>.HostConfig<span class="variable">$DeployWar</span><span class="selector-class">.run</span>(HostConfig<span class="selector-class">.java</span>:<span class="number">1895</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span>.Executors<span class="variable">$RunnableAdapter</span><span class="selector-class">.call</span>(Executors<span class="selector-class">.java</span>:<span class="number">511</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span><span class="selector-class">.FutureTask</span><span class="selector-class">.run</span>(FutureTask<span class="selector-class">.java</span>:<span class="number">266</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span><span class="selector-class">.ThreadPoolExecutor</span><span class="selector-class">.runWorker</span>(ThreadPoolExecutor<span class="selector-class">.java</span>:<span class="number">1149</span>)</span><br><span class="line">                at java<span class="selector-class">.util</span><span class="selector-class">.concurrent</span>.ThreadPoolExecutor<span class="variable">$Worker</span><span class="selector-class">.run</span>(ThreadPoolExecutor<span class="selector-class">.java</span>:<span class="number">624</span>)</span><br><span class="line">                at java<span class="selector-class">.lang</span><span class="selector-class">.Thread</span><span class="selector-class">.run</span>(Thread<span class="selector-class">.java</span>:<span class="number">748</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>个人认为其主要原因就是没有在<code>$CATALINA_HOME/bin/catalina.sh</code>下设置JAVA_OPTS的<code>JVM</code>虚拟机相关运行参数的变量而导致的</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="INI"><figure class="iseeu highlight /ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">JAVA_OPTS</span>=<span class="string">&quot;-server -Xms2048m -Xmx2048m -Xss512k -XX:PermSize=128m -XX:MaxPermSize=256m&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>将上面代码加入到<code>$CATALINA_HOME/bin/catalina.sh</code>中可以近乎完美的避免此错误，但也会偶尔出现一两次。</p>
+<p>这涉及到JVM调优的相关知识，待了解其原理后对此问题进行详解！</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+        <tag>Tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>不同内部类的区别</title>
+    <url>/2021/06/06/a685fcc5167c/</url>
+    <content><![CDATA[<blockquote>
+<p>一张图介绍不同内部类的区别</p>
+</blockquote>
+<span id="more"></span>
+
+<p><img src="https://img.api.liujinshui.com/C051C5DA-2372-4D2B-ACEC-E1C242021ECB-1024x236.png" alt="不同内部类的区别"></p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>内部类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>过滤器与拦截器</title>
+    <url>/2021/08/06/ede9455b05b7/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>高级Java入门名词</title>
+    <url>/2021/06/06/ceadf5efd54e/</url>
+    <content><![CDATA[<blockquote>
+<p>高级Java入门名词，每天背一遍</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="二字动词"><a href="#二字动词" class="headerlink" title="二字动词"></a>二字动词</h1><p>复盘，赋能，加持，沉淀，倒逼，落地，串联，协同，反哺，兼容</p>
+<p>包装，重组，履约，响应，量化，布局，联动，细分，梳理，输出</p>
+<p>加速，共建，支撑，融合，聚合，集成，对标，聚焦，抓手，拆解</p>
+<p>抽象，摸索，提炼，打通，打透，吃透，迁移，分发，分装，辐射</p>
+<p>围绕，复用，渗透，扩展，开拓，皮实，共创，共建，解耦，集成</p>
+<p>对齐，拉齐，对焦，给到，拿到，死磕。</p>
+<hr>
+<h1 id="二字名词"><a href="#二字名词" class="headerlink" title="二字名词"></a>二字名词</h1><p>漏斗，中台，闭环，打法，纽带，矩阵，刺激，规模，场景，维度</p>
+<p>格局，形态，生态，体系，认知，玩法，体感，感知，调性，心智</p>
+<p>战役，合力，赛道，基因，模型，载体，横向，通道，补位，试点</p>
+<p>布局，联动，价值，细分，梳理，提炼，支撵，解法，脑暴，分层</p>
+<p>心力。</p>
+<hr>
+<h1 id="三字名词"><a href="#三字名词" class="headerlink" title="三字名词"></a>三字名词</h1><p>感知度，方法论，组合拳，引爆点，点线面，精细化，差异化</p>
+<p>平台化，结构化，影响力，耦合性，使捷性，一致性，端到端</p>
+<p>短平快，护城河，体验感，颗粒度。</p>
+<hr>
+<h1 id="四字名词"><a href="#四字名词" class="headerlink" title="四字名词"></a>四字名词</h1><p>生命周期，价值转化，强化认知。资源倾斜，完善逻辑，抽离透传</p>
+<p>复用打法，商业模式，快速响应，定性定量，关键路径，去中心化</p>
+<p>结果导向，垂直领域，归因分析，体验度量，信息屏障，资源整合。</p>
+<hr>
+<h1 id="中英文混合"><a href="#中英文混合" class="headerlink" title="中英文混合"></a>中英文混合</h1><p>复盘（review），赋能（enable），抓手（grip），对标（benchmark），沉淀（internalize），对齐（alignment）</p>
+<p>拉通（stream-line），倒逼（pushback），颗粒度（granularity），落地（landing），中台（middle office）</p>
+<p>方法论（methodology），漏斗（funnel），组合拳（blended measures），闭环（closed loop），生命周期（life cycle）</p>
+<p>打法（tactics），履约（delivery），引爆点（tipping point），串联（cascade），价值转化（value transfer）</p>
+<p>关联转化（associated transfer），纽带（bond），矩阵（matrix），协同（collabration），反哺（give back）</p>
+<p>点线面（ point.Line and plane），认知（perception），强化认知（reinfored perception），强化心智（reinforced mind-set）</p>
+<p>智能（smart-），机器学习（machine learning），智能决策（smart decision），交互（inter-ink），兼容（inclusive）</p>
+<p>包装（package），相应（relative），刺激（stimulate），规模（scale），重组（restructure），量化（measurable）</p>
+<p>宽松（loose），资源倾斜（resources allocation），完善逻辑（perfect logic），抽离透传（detach and circulate）</p>
+<p>抽象思维（abstract thinking），复用打法（replicate tactics），发力（put the force on）,精细化（refining），布局（layout）</p>
+<p>商业模式（business model），联动（Interact/cooperate），场景（senario or situation），聚焦（focus）</p>
+<p>快速响应（speedy response），影响力（influence power）,价值（value），细分（segment），垂直领域（vertical area）</p>
+<p>纬度（dimention），定性定量（by quality and quantify），去中心化（decentralize），关键路径（main path）</p>
+<p>接地气（down to earth），梳理（stream line），输出（output），格局（perspective），生态（eco-system）</p>
+<p>结果导向（result-oriented），以终为始（put the end at the begining），聚焦重点（focus on the key points）</p>
+<p>话术（talking points），体系（system），认知（awareness），分享（share），流程（process），感知度（sensibility）</p>
+<p>加速（accelerate），用户画像（user profile），人货场（poople,goods,place），摸索（expore），提炼（extract）</p>
+<p>玩法（game play），共建（jointly develop），分发（distribute），分布式（distributed），支撑（supporting），体感（feeling）</p>
+<p>感知（perception），融合（integration），调性（flavor），私域（private domain），公域（public domain），心智（mind-set）</p>
+<p>解耦（decouple），拆解（disassemble），集成（congregate），对焦（cross check），打通（get through），打透（penetrate）</p>
+<p>吃透（grasp），迁移（transfer or migrate），分层（stratification），心力（mental energy），赛道（racing track）</p>
+<p>服务化（servitization/or service-orientation）， 战役（champaign），合力（joint- force），中心（center）</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>高级Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hashCode()和equals()的若干问题</title>
+    <url>/2021/06/06/725b26faf97b/</url>
+    <content><![CDATA[<blockquote>
+<p>引用：<a href="https://www.cnblogs.com/skywang12345/p/3324958.html">skywang12345</a></p>
+<p>本文全文引用上述链接，对笔误处进行了修复，写的非常不错，供个人学习！</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<h1 id="equals-的作用"><a href="#equals-的作用" class="headerlink" title="equals() 的作用"></a>equals() 的作用</h1><p>equals() 的作用是 <strong>用来判断两个对象是否相等</strong></p>
+<p>equals() 定义在JDK的Object.java中。通过判断两个对象的地址是否相等(即，是否是同一个对象)来区分它们是否相等。源码如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>既然Object.java中定义了<code>equals()</code>方法，这就意味着所有的Java类都实现了<code>equals()</code>方法，所有的类都可以通过<code>equals()</code>去比较两个对象是否相等。 但是，我们已经说过，使用默认的<code>equals()</code>方法，等价于“**==**”方法。因此，我们通常会重写equals()方法：若两个对象的内容相等，则equals()方法返回true；否则，返回fasle。  </p>
+<p>下面根据“<strong>类是否覆盖equals()方法</strong>”，将它分为2类。</p>
+<ol>
+<li>若某个类没有覆盖equals()方法，当它的通过equals()比较两个对象时，实际上是比较两个对象是不是同一个对象。这时，等价于通过“==”去比较这两个对象。</li>
+<li> 我们可以覆盖类的equals()方法，来让equals()通过其它方式比较两个对象是否相等。通常的做法是：若两个对象的内容相等，则equals()方法返回true；否则，返回fasle。</li>
+</ol>
+<p>下面，举例对上面的2种情况进行说明。</p>
+<h2 id="“没有覆盖equals-方法”的情况"><a href="#“没有覆盖equals-方法”的情况" class="headerlink" title="“没有覆盖equals()方法”的情况"></a>“没有覆盖equals()方法”的情况</h2><p><strong>代码如下 (EqualsTest1.java)：</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.Comparable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> equals()的测试程序。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> skywang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@emai</span> kuiwu-wang@163.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EqualsTest1</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 新建2个相同内容的Person对象，</span></span><br><span class="line">        <span class="comment">// 再用equals比较它们是否相等</span></span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        System.out.printf(<span class="string">&quot;%s\n&quot;</span>, p1.equals(p2));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> Person类。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> name + <span class="string">&quot; - &quot;</span> +age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>运行结果</strong>：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">false</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>结果分析</strong>：</p>
+<p>​    我们通过 p1.equals(p2) 来“比较p1和p2是否相等时”。实际上，调用的Object.java的equals()方法，即调用的 (p1==p2) 。它是比较“p1    和p2是否是同一个对象”。<br>​    而由 p1 和 p2 的定义可知，它们虽然内容相同；但它们是两个不同的对象！因此，返回结果是false。</p>
+<h2 id="“覆盖equals-方法”的情况"><a href="#“覆盖equals-方法”的情况" class="headerlink" title="“覆盖equals()方法”的情况"></a>“覆盖equals()方法”的情况</h2><p>我们修改上面的<em>EqualsTest1.java</em>：<strong>覆盖equals()方法</strong>。</p>
+<p><strong>代码如下 (EqualsTest2.java)：</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.Comparable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> equals()的测试程序。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> skywang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@emai</span> kuiwu-wang@163.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EqualsTest2</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 新建2个相同内容的Person对象，</span></span><br><span class="line">        <span class="comment">// 再用equals比较它们是否相等</span></span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        System.out.printf(<span class="string">&quot;%s\n&quot;</span>, p1.equals(p2));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> Person类。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> name + <span class="string">&quot; - &quot;</span> +age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@desc</span> 覆盖equals方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj == <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果是同一个对象返回true，反之返回false</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span> == obj)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//判断是否类型相同</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.getClass() != obj.getClass())&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Person person = (Person)obj;</span><br><span class="line">            <span class="keyword">return</span> name.equals(person.name) &amp;&amp; age==person.age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>运行结果</strong>：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">true</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>结果分析</strong>：</p>
+<p>我们在EqualsTest2.java 中重写了Person的equals()函数：当两个Person对象的 name 和 age 都相等，则返回true。<br>因此，运行结果返回true。</p>
+<p>讲到这里，顺便说一下java对equals()的要求。有以下几点：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="LLVM"><figure class="iseeu highlight /llvm"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. 对称性：如果<span class="keyword">x</span>.equals(y)返回是<span class="string">&quot;true&quot;</span>，那么y.equals(<span class="keyword">x</span>)也应该返回是<span class="string">&quot;true&quot;</span>。</span><br><span class="line"><span class="number">2</span>. 反射性：<span class="keyword">x</span>.equals(<span class="keyword">x</span>)必须返回是<span class="string">&quot;true&quot;</span>。</span><br><span class="line"><span class="number">3</span>. 类推性：如果<span class="keyword">x</span>.equals(y)返回是<span class="string">&quot;true&quot;</span>，而且y.equals(z)返回是<span class="string">&quot;true&quot;</span>，那么z.equals(<span class="keyword">x</span>)也应该返回是<span class="string">&quot;true&quot;</span>。</span><br><span class="line"><span class="number">4</span>. 一致性：如果<span class="keyword">x</span>.equals(y)返回是<span class="string">&quot;true&quot;</span>，只要<span class="keyword">x</span>和y内容一直不变，不管你重复<span class="keyword">x</span>.equals(y)多少次，返回都是<span class="string">&quot;true&quot;</span>。</span><br><span class="line"><span class="number">5</span>. 非空性，<span class="keyword">x</span>.equals(<span class="keyword">null</span>)，永远返回是<span class="string">&quot;false&quot;</span>；<span class="keyword">x</span>.equals(和<span class="keyword">x</span>不同类型的对象)永远返回是<span class="string">&quot;false&quot;</span>。</span><br></pre></td></tr></table></figure></div>
+
+<p>现在，再回顾一下equals()的作用：判断两个对象是否相等。当我们重写equals()的时候，可千万不好将它的作用给改变了！</p>
+<hr>
+<h1 id="equals-与-的区别是什么？"><a href="#equals-与-的区别是什么？" class="headerlink" title="equals() 与 == 的区别是什么？"></a>equals() 与 == 的区别是什么？</h1><p>== : 它的作用是<strong>判断两个对象的地址是不是相等。</strong>即，判断两个对象是不试同一个对象。</p>
+<p>equals() : 它的作用也是<strong>判断两个对象是否相等。</strong>但它一般有两种使用情况(前面第1部分已详细介绍过)：<br>         情况1，类没有覆盖equals()方法。则通过equals()比较该类的两个对象时，等价于通过“==”比较这两个对象。<br>         情况2，类覆盖了equals()方法。一般，我们都覆盖equals()方法来两个对象的内容相等；若它们的内容相等，则返回true(即，认为这两个对象相等)。</p>
+<p>下面，通过示例比较它们的区别。</p>
+<p>**代码如下： **</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.Comparable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> equals()的测试程序。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> skywang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@emai</span> kuiwu-wang@163.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EqualsTest3</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 新建2个相同内容的Person对象，</span></span><br><span class="line">        <span class="comment">// 再用equals比较它们是否相等</span></span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        System.out.printf(<span class="string">&quot;p1.equals(p2) : %s\n&quot;</span>, p1.equals(p2));</span><br><span class="line">        System.out.printf(<span class="string">&quot;p1==p2 : %s\n&quot;</span>, p1==p2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> Person类。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> name + <span class="string">&quot; - &quot;</span> +age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@desc</span> 覆盖equals方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj == <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果是同一个对象返回true，反之返回false</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span> == obj)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//判断是否类型相同</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.getClass() != obj.getClass())&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Person person = (Person)obj;</span><br><span class="line">            <span class="keyword">return</span> name.equals(person.name) &amp;&amp; age==person.age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>运行结果</strong>：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">p1.equals(p2) : <span class="keyword">true</span></span><br><span class="line">p1==p2 : <span class="keyword">false</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>结果分析</strong>：</p>
+<p>在EqualsTest3.java 中：</p>
+<ol>
+<li> <code>p1.equals(p2)</code>这是判断p1和p2的内容是否相等。因为Person覆盖equals()方法，而这个equals()是用来判断p1和p2的内容是否相等，恰恰p1和p2的内容又相等；因此，返回true。</li>
+<li><code>p1==p2</code> 这是判断p1和p2是否是同一个对象。由于它们是各自新建的两个Person对象；因此，返回false。</li>
+</ol>
+<hr>
+<h1 id="hashCode-的作用"><a href="#hashCode-的作用" class="headerlink" title="hashCode() 的作用"></a>hashCode() 的作用</h1><p>​        hashCode() 的作用是<strong>获取哈希码</strong>，也称为散列码；它实际上是返回一个int整数。这个<strong>哈希码的作用</strong>是确定该对象在哈希表中的索引位置。</p>
+<p>​        hashCode() 定义在JDK的Object.java中，这就意味着Java中的任何类都包含有hashCode() 函数。<br>        虽然，每个Java类都包含hashCode() 函数。但是，仅仅当创建并某个“类的散列表”(关于“散列表”见下面说明)时，该类的hashCode() 才有用(作用是：确定该类的每一个对象在散列表中的位置；其它情况下(例如，创建类的单个对象，或者创建类的对象数组等等)，类的hashCode() 没有作用。<br>        上面的散列表，指的是：Java集合中本质是散列表的类，如HashMap，Hashtable，HashSet。</p>
+<pre><code>   也就是说：**hashCode() 在散列表中才有用，在其它情况下没用。**在散列表中hashCode() 的作用是获取对象的散列码，进而确定该对象在散列表中的位置。
+</code></pre>
+<p>OK！至此，我们搞清楚了：hashCode()的作用是获取散列码。但是，散列码是用来干什么的呢？为什么散列表需要散列码呢？要解决这些问题，就需要理解散列表！关于散列表的内容，非三言两语道的明白；大家可以通过下面几篇文章来学习：</p>
+<p>[<a href="http://www.cnblogs.com/skywang12345/p/3311899.html">转载] 散列表(Hash Table)从理论到实用（上）</a></p>
+<p>[<a href="http://www.cnblogs.com/skywang12345/p/3311909.html">转载] 散列表(Hash Table)从理论到实用（中）</a></p>
+<p>[<a href="http://www.cnblogs.com/skywang12345/p/3311915.html">转载] 散列表(Hash Table)从理论到实用（下）</a> </p>
+<p>为了能理解后面的内容，这里简单的介绍一下散列码的作用。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GAUSS"><figure class="iseeu highlight /gauss"><table><tr><td class="code"><pre><span class="line">我们都知道，散列表存储的是键值对(<span class="built_in">key</span>-value)，它的特点是：能根据“键”快速的检索出对应的“值”。这其中就利用到了散列码！</span><br><span class="line">散列表的本质是通过数组实现的。当我们要获取散列表中的某个“值”时，实际上是要获取数组中的某个位置的元素。而数组的位置，就是通过“键”来获取的；更进一步说，数组的位置，是通过“键”对应的散列码计算得到的。</span><br></pre></td></tr></table></figure></div>
+
+<p>下面，我们以HashSet为例，来深入说明hashCode()的作用。</p>
+<p>​    假设，HashSet中已经有1000个元素。当插入第1001个元素时，需要怎么处理？因为HashSet是Set集合，它不允许有重复元素。<br>​    “将第1001个元素逐个的和前面1000个元素进行比较”？显然，这个效率是相等低下的。散列表很好的解决了这个问题，它根据元素的散列码计算出元素在散列表中的位置，然后将元素插入该位置即可。对于相同的元素，自然是只保存了一个。<br>​    由此可知，若两个元素相等，它们的散列码一定相等；但反过来确不一定。在散列表中，<br>​              1、如果两个对象相等，那么它们的hashCode()值一定要相同；<br>​              2、如果两个对象hashCode()相等，它们并不一定相等。<br>​              注意：这是在散列表中的情况。在非散列表中一定如此！</p>
+<p>对“hashCode()的作用”就谈这么多。</p>
+<hr>
+<h1 id="hashCode-和-equals-的关系"><a href="#hashCode-和-equals-的关系" class="headerlink" title="hashCode() 和 equals() 的关系"></a>hashCode() 和 equals() 的关系</h1><p>接下面，我们讨论另外一个话题。网上很多文章将 hashCode() 和 equals 关联起来，有的讲的不透彻，有误导读者的嫌疑。在这里，我自己梳理了一下 “hashCode() 和 equals()的关系”。</p>
+<p>我们以“<strong>类的用途</strong>”来将“hashCode() 和 equals()的关系”分2种情况来说明。</p>
+<p><strong>1. 第一种 不会创建“类对应的散列表”</strong></p>
+<p>​     这里所说的“不会创建类对应的散列表”是说：我们不会在HashSet, Hashtable, HashMap等等这些本质是散列表的数据结构中，用到该类。例如，不会创建该类的HashSet集合。</p>
+<p>​    在这种情况下，该类的“hashCode() 和 equals() ”没有半毛钱关系的！<br>​    这种情况下，equals() 用来比较该类的两个对象是否相等。而hashCode() 则根本没有任何作用，所以，不用理会hashCode()。</p>
+<p>下面，我们通过示例查看类的<strong>两个对象相等</strong> 以及 <strong>不等</strong>时hashCode()的取值。</p>
+<p><strong>源码如下</strong> (NormalHashCodeTest.java)：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.Comparable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> 比较equals() 返回true 以及 返回false时， hashCode()的值。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> skywang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@emai</span> kuiwu-wang@163.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NormalHashCodeTest</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 新建2个相同内容的Person对象，</span></span><br><span class="line">        <span class="comment">// 再用equals比较它们是否相等</span></span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p3 = <span class="keyword">new</span> Person(<span class="string">&quot;aaa&quot;</span>, <span class="number">200</span>);</span><br><span class="line">        System.out.printf(<span class="string">&quot;p1.equals(p2) : %s; p1(%d) p2(%d)\n&quot;</span>, p1.equals(p2), p1.hashCode(), p2.hashCode());</span><br><span class="line">        System.out.printf(<span class="string">&quot;p1.equals(p3) : %s; p1(%d) p3(%d)\n&quot;</span>, p1.equals(p3), p1.hashCode(), p3.hashCode());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> Person类。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> name + <span class="string">&quot; - &quot;</span> +age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@desc</span> 覆盖equals方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj == <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果是同一个对象返回true，反之返回false</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span> == obj)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//判断是否类型相同</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.getClass() != obj.getClass())&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Person person = (Person)obj;</span><br><span class="line">            <span class="keyword">return</span> name.equals(person.name) &amp;&amp; age==person.age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>运行结果</strong>：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">p1.equals(p2) : <span class="keyword">true</span>; p1(<span class="number">1169863946</span>) p2(<span class="number">1901116749</span>)</span><br><span class="line">p1.equals(p3) : <span class="keyword">false</span>; p1(<span class="number">1169863946</span>) p3(<span class="number">2131949076</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>从结果也可以看出：<strong>p1和p2相等的情况下，hashCode()也不一定相等。</strong></p>
+<p><strong>2. 第二种 会创建“类对应的散列表”</strong></p>
+<p>​    这里所说的“会创建类对应的散列表”是说：我们会在HashSet, Hashtable, HashMap等等这些本质是散列表的数据结构中，用到该类。例如，会创建该类的HashSet集合。</p>
+<p>​    在这种情况下，该类的“hashCode() 和 equals() ”是有关系的：<br>​    1)、如果两个对象相等，那么它们的hashCode()值一定相同。<br>​       这里的相等是指，通过equals()比较两个对象时返回true。<br>​    2)、如果两个对象hashCode()相等，它们并不一定相等。<br>​        因为在散列表中，hashCode()相等，即两个键值对的哈希值相等。然而哈希值相等，并不一定能得出键值对相等。补充说一句：“两个不同的键值对，哈希值相等”，这就是哈希冲突。</p>
+<p>​    此外，在这种情况下。若要判断两个对象是否相等，除了要覆盖equals()之外，也要覆盖hashCode()函数。否则，equals()无效。<br>例如，创建Person类的HashSet集合，必须同时覆盖Person类的equals() 和 hashCode()方法。<br>​    如果单单只是覆盖equals()方法。我们会发现，equals()方法没有达到我们想要的效果。</p>
+<p><strong>参考代码</strong> (ConflictHashCodeTest1.java)：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.Comparable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> 比较equals() 返回true 以及 返回false时， hashCode()的值。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> skywang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@emai</span> kuiwu-wang@163.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConflictHashCodeTest1</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 新建Person对象，</span></span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p3 = <span class="keyword">new</span> Person(<span class="string">&quot;aaa&quot;</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 新建HashSet对象</span></span><br><span class="line">        HashSet set = <span class="keyword">new</span> HashSet();</span><br><span class="line">        set.add(p1);</span><br><span class="line">        set.add(p2);</span><br><span class="line">        set.add(p3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 比较p1 和 p2， 并打印它们的hashCode()</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;p1.equals(p2) : %s; p1(%d) p2(%d)\n&quot;</span>, p1.equals(p2), p1.hashCode(), p2.hashCode());</span><br><span class="line">        <span class="comment">// 打印set</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;set:%s\n&quot;</span>, set);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> Person类。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;(&quot;</span>+name + <span class="string">&quot;, &quot;</span> +age+<span class="string">&quot;)&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@desc</span> 覆盖equals方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj == <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果是同一个对象返回true，反之返回false</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span> == obj)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//判断是否类型相同</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.getClass() != obj.getClass())&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Person person = (Person)obj;</span><br><span class="line">            <span class="keyword">return</span> name.equals(person.name) &amp;&amp; age==person.age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>运行结果</strong>：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">p1.equals(p2) : <span class="keyword">true</span>; p1(<span class="number">1169863946</span>) p2(<span class="number">1690552137</span>)</span><br><span class="line">set:[(eee, <span class="number">100</span>), (eee, <span class="number">100</span>), (aaa, <span class="number">200</span>)]</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>结果分析</strong>：</p>
+<p>​    我们重写了Person的equals()。但是，很奇怪的发现：HashSet中仍然有重复元素：p1 和 p2。为什么会出现这种情况呢？</p>
+<p>​    这是因为虽然p1 和 p2的内容相等，但是它们的hashCode()不等；所以，HashSet在添加p1和p2的时候，认为它们不相等。</p>
+<p>下面，我们同时覆盖equals() 和 hashCode()方法。</p>
+<p>参考代码 (ConflictHashCodeTest2.java)：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.Comparable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@desc</span> 比较equals() 返回true 以及 返回false时， hashCode()的值。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> skywang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@emai</span> kuiwu-wang@163.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConflictHashCodeTest2</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 新建Person对象，</span></span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person(<span class="string">&quot;eee&quot;</span>, <span class="number">100</span>);</span><br><span class="line">        Person p3 = <span class="keyword">new</span> Person(<span class="string">&quot;aaa&quot;</span>, <span class="number">200</span>);</span><br><span class="line">        Person p4 = <span class="keyword">new</span> Person(<span class="string">&quot;EEE&quot;</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 新建HashSet对象</span></span><br><span class="line">        HashSet set = <span class="keyword">new</span> HashSet();</span><br><span class="line">        set.add(p1);</span><br><span class="line">        set.add(p2);</span><br><span class="line">        set.add(p3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 比较p1 和 p2， 并打印它们的hashCode()</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;p1.equals(p2) : %s; p1(%d) p2(%d)\n&quot;</span>, p1.equals(p2), p1.hashCode(), p2.hashCode());</span><br><span class="line">        <span class="comment">// 比较p1 和 p4， 并打印它们的hashCode()</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;p1.equals(p4) : %s; p1(%d) p4(%d)\n&quot;</span>, p1.equals(p4), p1.hashCode(), p4.hashCode());</span><br><span class="line">        <span class="comment">// 打印set</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;set:%s\n&quot;</span>, set);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> Person类。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> name + <span class="string">&quot; - &quot;</span> +age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@desc</span>重写hashCode</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">int</span> nameHash =  name.toUpperCase().hashCode();</span><br><span class="line">            <span class="keyword">return</span> nameHash ^ age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@desc</span> 覆盖equals方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj == <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//如果是同一个对象返回true，反之返回false</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span> == obj)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//判断是否类型相同</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.getClass() != obj.getClass())&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Person person = (Person)obj;</span><br><span class="line">            <span class="keyword">return</span> name.equals(person.name) &amp;&amp; age==person.age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>运行结果</strong>：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="code"><pre><span class="line">p1.equals(p2) : <span class="keyword">true</span>; p1(<span class="number">68545</span>) p2(<span class="number">68545</span>)</span><br><span class="line">p1.equals(p4) : <span class="keyword">false</span>; p1(<span class="number">68545</span>) p4(<span class="number">68545</span>)</span><br><span class="line">set:[aaa - <span class="number">200</span>, eee - <span class="number">100</span>]</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>结果分析</strong>：</p>
+<p>​    这下，equals()生效了，HashSet中没有重复元素。<br>​    <em>比较p1和p2</em>，我们发现：它们的hashCode()相等，通过equals()比较它们也返回true。所以，p1和p2被视为相等。<br>​    <em>比较p1和p4</em>，我们发现：虽然它们的hashCode()相等；但是，通过equals()比较它们返回false。所以，p1和p4被视为不相等。</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+</search>
